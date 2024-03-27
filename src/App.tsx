@@ -1,27 +1,34 @@
-import axios from "axios";
+// import axios from "axios";
 
-import { useEffect, useState } from "react";
-import { BaseURL, ImageUrl, options } from "./requestConfig";
+import { Route, Routes } from "react-router-dom";
+import MovieHome from "./components/moviePage/MovieHome";
+import TvHome from "./components/tvPage/TvHome";
+import WatchList from "./components/watchList/WatchList";
 
+// import { useEffect, useState } from "react";
+// import { BaseURL, ImageUrl, options } from "./requestConfig";
 
 function App() {
-  const [poster, setPoster] = useState<string>("");
+  // const [poster, setPoster] = useState<string>("");
 
-  useEffect(() => {
-    axios.get(BaseURL, options).then((res) => {
-      const poster = res!.data.results[6].poster_path;
-      setPoster(poster);
-    });
-  }, []);
+  // useEffect(() => {
+  //   axios.get(BaseURL, options).then((res) => {
+  //     const poster = res!.data.results[6].poster_path;
+  //     setPoster(poster);
+  //   });
+  // }, []);
 
   return (
     <>
       <div>
-        <img
-          src={ImageUrl + poster}
-          alt=""
-          className="w-40 h-40"
-        />
+        <Routes>
+          <Route path="/">
+            <Route index element={<MovieHome />} />
+            <Route path="tv" element={<TvHome />} />
+            <Route path="watchlist/" element={<WatchList />} />
+            <Route path="*" />
+          </Route>
+        </Routes>
       </div>
     </>
   );
