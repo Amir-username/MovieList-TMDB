@@ -1,8 +1,8 @@
 import { Route, Routes } from "react-router-dom";
 import MovieHome from "./components/moviePage/MovieHome";
-import TvHome from "./components/tvPage/TvHome";
 import WatchList from "./components/watchList/WatchList";
 import Explore from "./components/explore/Explore";
+import BottomNavigation from "./components/bottomNavigation/BottomNavigation";
 
 function App() {
   return (
@@ -12,11 +12,11 @@ function App() {
           <Route path="/">
             <Route path="explore/" element={<Explore />} />
             <Route index element={<MovieHome />} />
-            <Route path="tv/" element={<TvHome />} />
             <Route path="watchlist/" element={<WatchList />} />
             <Route path="*" />
           </Route>
         </Routes>
+        <BottomNavigation />
       </div>
     </>
   );

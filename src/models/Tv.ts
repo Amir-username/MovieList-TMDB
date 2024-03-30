@@ -162,25 +162,25 @@ import { Genre } from "./Genre";
 
 export class Tv {
   id: number;
-  title: string;
+  name: string;
   genres: Genre[];
-  poster: string;
-  createdBy: string;
+  poster_path: string;
+  created_by: string;
   overview: string;
 
   constructor(
     id: number,
-    title: string,
+    name: string,
     genres: Genre[],
-    poster: string,
-    createdBy: string,
+    poster_path: string,
+    created_by: string,
     overview: string
   ) {
     this.id = id;
-    this.title = title;
+    this.name = name;
     this.genres = genres;
-    this.poster = poster;
-    this.createdBy = createdBy;
+    this.poster_path = poster_path;
+    this.created_by = created_by;
     this.overview = overview;
   }
 }
