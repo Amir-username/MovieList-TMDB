@@ -5,6 +5,7 @@ import axios from "axios";
 import { BaseURL, options } from "../../requestConfig";
 import { Tv } from "../../models/Tv";
 import TvList from "../tvList/TvList";
+import Brand from "../brand/Brand";
 
 function MovieHome() {
   const [movies, setMovies] = useState<Movie[]>([]);
@@ -18,18 +19,21 @@ function MovieHome() {
   }, []);
 
   useEffect(() => {
-    axios.get(BaseURL + '/discover/tv?page=1', options).then((res) => {
+    axios.get(BaseURL + "/discover/tv?page=1", options).then((res) => {
       const tvList = res.data.results;
       setSeries(tvList);
     });
   }, []);
 
   return (
-    <div>
-      <h1>movies</h1>
-      <MovieList movies={movies} />
-      <h1>series</h1>
-      <TvList series={series} />
+    <div className="p-5 mb-20">
+      <div className="flex flex-col">
+        <Brand />
+        <h1>movies</h1>
+        <MovieList movies={movies} />
+        <h1>series</h1>
+        <TvList series={series} />
+      </div>
     </div>
   );
 }
