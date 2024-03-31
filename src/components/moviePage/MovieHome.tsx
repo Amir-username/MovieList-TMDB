@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
-import MovieList from "../movieList/MovieList";
 import { Movie } from "../../models/Movie";
 import axios from "axios";
 import { BaseURL, options } from "../../requestConfig";
 import { Tv } from "../../models/Tv";
-import TvList from "../tvList/TvList";
 import Brand from "../brand/Brand";
+import MovieCarousel from "../carousel/MovieCarousel";
 
 function MovieHome() {
   const [movies, setMovies] = useState<Movie[]>([]);
@@ -27,12 +26,9 @@ function MovieHome() {
 
   return (
     <div className="p-5 mb-20">
-      <div className="flex flex-col">
+      <div className="flex flex-col gap-5">
         <Brand />
-        <h1>movies</h1>
-        <MovieList movies={movies} />
-        <h1>series</h1>
-        <TvList series={series} />
+        <MovieCarousel movies={movies}/>
       </div>
     </div>
   );
