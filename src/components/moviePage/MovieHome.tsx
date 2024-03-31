@@ -18,7 +18,7 @@ function MovieHome() {
   }, []);
 
   useEffect(() => {
-    axios.get('https://api.themoviedb.org/3/discover/tv?page=1').then((res) => {
+    axios.get(BaseURL + '/discover/tv?page=1', options).then((res) => {
       const tvList = res.data.results;
       setSeries(tvList);
     });
