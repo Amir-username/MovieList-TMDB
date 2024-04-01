@@ -5,6 +5,7 @@ import { BaseURL, options } from "../../requestConfig";
 import { Tv } from "../../models/Tv";
 import Brand from "../brand/Brand";
 import MovieCarousel from "../carousel/MovieCarousel";
+import TvCarousel from "../carousel/TvCarousel";
 
 function MovieHome() {
   const [movies, setMovies] = useState<Movie[]>([]);
@@ -28,7 +29,8 @@ function MovieHome() {
     <div className="p-5 mb-20">
       <div className="flex flex-col gap-5">
         <Brand />
-        <MovieCarousel movies={movies}/>
+        <MovieCarousel movies={movies} />
+        <TvCarousel series={series} />
       </div>
     </div>
   );
