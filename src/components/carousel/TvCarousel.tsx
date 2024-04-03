@@ -9,7 +9,7 @@ type TvCarouselProps = {
 function TvCarousel({ series }: TvCarouselProps) {
   return (
     <div className="flex flex-col mt-8 gap-8">
-      <Link to={"series/"}>
+      <Link to={"series/"} state={series}>
         <div className="text-center text-2xl font-semibold text-gray-400">
           series
         </div>

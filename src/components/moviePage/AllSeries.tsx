@@ -1,7 +1,16 @@
+import { useLocation } from "react-router-dom";
+import MoviesBrand from "../brand/MoviesBrand";
+import AllSeriesContent from "./AllSeriesContent";
+
 function AllSeries() {
-    return (
-        <div>series</div>
-    );
+  const location = useLocation();
+
+  return (
+    <div className="flex flex-col m-5 gap-10 mb-28">
+      <MoviesBrand />
+      <AllSeriesContent series={location.state} />
+    </div>
+  );
 }
 
 export default AllSeries;
