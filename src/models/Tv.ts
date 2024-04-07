@@ -158,12 +158,11 @@
 
 */
 
-import { Genre } from "./Genre";
 
 export class Tv {
   id: number;
   name: string;
-  genres: Genre[];
+  genre_ids: number[];
   poster_path: string;
   created_by: string;
   overview: string;
@@ -171,14 +170,14 @@ export class Tv {
   constructor(
     id: number,
     name: string,
-    genres: Genre[],
+    genre_ids: number[],
     poster_path: string,
     created_by: string,
     overview: string
   ) {
     this.id = id;
     this.name = name;
-    this.genres = genres;
+    this.genre_ids = genre_ids;
     this.poster_path = poster_path;
     this.created_by = created_by;
     this.overview = overview;

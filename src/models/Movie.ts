@@ -85,19 +85,18 @@
 
 */
 
-import { Genre } from "./Genre";
 
 export class Movie {
   id: number;
   title: string;
-  genres: Genre[];
+  genres: number[];
   poster_path: string;
   release_date: string;
 
   constructor(
     id: number,
     title: string,
-    genres: Genre[],
+    genres: number[],
     poster_path: string,
     release_date: string
   ) {
