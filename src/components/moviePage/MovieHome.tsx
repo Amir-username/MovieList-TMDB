@@ -7,6 +7,7 @@ import Brand from "../brand/Brand";
 import MovieCarousel from "../carousel/MovieCarousel";
 import TvCarousel from "../carousel/TvCarousel";
 
+
 function MovieHome() {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [series, setSeries] = useState<Tv[]>([]);
@@ -25,12 +26,14 @@ function MovieHome() {
     });
   }, []);
 
+
+
   return (
     <div className="p-5 mb-20">
       <div className="flex flex-col gap-5">
-        <Brand />
-        <MovieCarousel movies={movies} />
-        <TvCarousel series={series} />
+          <Brand />
+          <MovieCarousel movies={movies} />
+          <TvCarousel series={series} />
       </div>
     </div>
   );

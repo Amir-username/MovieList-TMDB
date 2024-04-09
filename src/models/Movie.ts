@@ -85,25 +85,33 @@
 
 */
 
-
 export class Movie {
   id: number;
   title: string;
-  genres: number[];
+  genre_ids: number[];
   poster_path: string;
+  backdrop_path: string;
   release_date: string;
+  original_language: string;
+  overview: string;
 
   constructor(
     id: number,
     title: string,
-    genres: number[],
+    genre_ids: number[],
     poster_path: string,
-    release_date: string
+    backdrop_path: string,
+    release_date: string,
+    original_language: string,
+    overview: string
   ) {
     this.id = id;
     this.title = title;
-    this.genres = genres;
+    this.genre_ids = genre_ids;
     this.poster_path = poster_path;
+    this.backdrop_path = backdrop_path;
     this.release_date = release_date;
+    this.original_language = original_language;
+    this.overview = overview;
   }
 }
