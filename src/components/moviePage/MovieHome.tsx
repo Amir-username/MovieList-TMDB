@@ -31,7 +31,7 @@ function MovieHome() {
 
   return (
     <div className="p-5 mb-20">
-      <div className="flex flex-col gap-5">
+      <div className="flex flex-col">
           <Brand />
           <MovieCarousel movies={movies} />
           <TvCarousel series={series} />

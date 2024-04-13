@@ -18,7 +18,9 @@ function TvDetailsContent({ tv, genres }: TvDetailsContentProps) {
             <span className="material-symbols-outlined text-emerald-700 text-xl">
               calendar_today
             </span>
-            <div className="font-semibold text-gray-600 text-lg">{tv.first_air_date}</div>
+            <div className="font-semibold text-gray-600 text-lg">
+              {tv.first_air_date}
+            </div>
           </div>
           <div className="flex gap-2 items-center">
             <span className="material-symbols-outlined text-emerald-700 text-xl">
@@ -29,6 +31,12 @@ function TvDetailsContent({ tv, genres }: TvDetailsContentProps) {
                 return <span key={genre.id}>{genre.name} </span>;
               })}
             </div>
+          </div>
+          <div className="flex gap-2 items-center">
+            <span className="material-symbols-outlined text-emerald-700 text-xl">
+              theater_comedy
+            </span>
+            <div className="font-semibold text-gray-600 text-lg"></div>
           </div>
           <div className="flex gap-2 items-center">
             <span className="material-symbols-outlined text-emerald-700 text-xl">
