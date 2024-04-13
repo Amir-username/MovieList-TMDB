@@ -13,8 +13,6 @@ function MovieDetails() {
 
   const genresContext = useContext(MovieGenreContext);
 
-  console.log(movie);
-
   const [genres, setGenres] = useState<Genre[]>([]);
 
   useEffect(() => {

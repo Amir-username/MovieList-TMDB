@@ -11,31 +11,44 @@ import { Genre } from "./models/Genre";
 import axios from "axios";
 import { BaseURL, options } from "./requestConfig";
 import { MovieGenreContext } from "./contexts/MovieGenreContext";
+import { TvGenreContext } from "./contexts/TvGenreContext";
+import TvDetails from "./components/tvDetails/TvDetails";
 
 function App() {
   const [movieGenres, setMovieGenres] = useState<Genre[]>([]);
+  const [tvGenres, setTvGenres] = useState<Genre[]>([]);
 
   useEffect(() => {
     axios.get(BaseURL + "/genre/movie/list", options).then((res) => {
       setMovieGenres(res.data.genres);
     });
   }, []);
+
+  useEffect(() => {
+    axios.get(BaseURL + "/genre/tv/list", options).then((res) => {
+      setTvGenres(res.data.genres);
+    });
+  }, []);
+
   return (
     <>
       <div>
         <MovieGenreContext.Provider value={movieGenres}>
-          <Routes>
-            <Route path="/">
-              <Route path="explore/" element={<Explore />} />
-              <Route index element={<MovieHome />} />
-              <Route index path="/movies" element={<AllMovies />} />
-              <Route path="movie-details" element={<MovieDetails />} />
-              <Route path="/series" element={<AllSeries />} />
-              <Route path="watchlist/" element={<WatchList />} />
-              <Route path="*" />
-            </Route>
-          </Routes>
-          <BottomNavigation />
+          <TvGenreContext.Provider value={tvGenres}>
+            <Routes>
+              <Route path="/">
+                <Route path="explore/" element={<Explore />} />
+                <Route index element={<MovieHome />} />
+                <Route index path="/movies" element={<AllMovies />} />
+                <Route path="movie-details" element={<MovieDetails />} />
+                <Route path="tv-details" element={<TvDetails />} />
+                <Route path="/series" element={<AllSeries />} />
+                <Route path="watchlist/" element={<WatchList />} />
+                <Route path="*" />
+              </Route>
+            </Routes>
+            <BottomNavigation />
+          </TvGenreContext.Provider>
         </MovieGenreContext.Provider>
       </div>
     </>
