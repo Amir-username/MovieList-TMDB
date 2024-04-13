@@ -16,7 +16,7 @@ function Explore() {
   }, []);
 
   return (
-    <div className="flex flex-col p-5">
+    <div className="flex flex-col p-5 gap-8">
       <SearchBox />
       <Genres genres={genres} />
     </div>
