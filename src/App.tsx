@@ -13,6 +13,7 @@ import { BaseURL, options } from "./requestConfig";
 import { MovieGenreContext } from "./contexts/MovieGenreContext";
 import { TvGenreContext } from "./contexts/TvGenreContext";
 import TvDetails from "./components/tvDetails/TvDetails";
+import GenrePage from "./components/genres/GenrePage";
 
 function App() {
   const [movieGenres, setMovieGenres] = useState<Genre[]>([]);
@@ -38,6 +39,7 @@ function App() {
             <Routes>
               <Route path="/">
                 <Route path="explore/" element={<Explore />} />
+                <Route path="genre/" element={<GenrePage />} />
                 <Route index element={<MovieHome />} />
                 <Route index path="/movies" element={<AllMovies />} />
                 <Route path="movie-details" element={<MovieDetails />} />

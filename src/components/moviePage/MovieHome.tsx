@@ -22,7 +22,6 @@ function MovieHome() {
   useEffect(() => {
     axios.get(BaseURL + "/discover/tv?page=1", options).then((res) => {
       const tvList = res.data.results;
-      console.log(tvList);
       setSeries(tvList);
     });
   }, []);

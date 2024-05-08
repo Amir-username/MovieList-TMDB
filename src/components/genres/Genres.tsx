@@ -25,7 +25,7 @@ function Genres({ genres }: GenresProps) {
         return (
           <GenreItem
             key={genre.id}
-            name={genre.name}
+            genre={genre}
             color={Colors[Math.floor(Math.random() * Colors.length)]}
           />
         );

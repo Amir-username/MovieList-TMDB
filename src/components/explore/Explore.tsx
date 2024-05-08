@@ -4,9 +4,11 @@ import SearchBox from "../searchBox/SearchBox";
 import { Genre } from "../../models/Genre";
 import axios from "axios";
 import { BaseURL, options } from "../../requestConfig";
+import { Movie } from "../../models/Movie";
 
 function Explore() {
   const [genres, setGenres] = useState<Genre[]>([]);
+  const [movies, setMovies] = useState<Movie[]>([]);
 
   useEffect(() => {
     axios.get(BaseURL + "/genre/movie/list", options).then((res) => {

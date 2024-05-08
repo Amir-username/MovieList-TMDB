@@ -2,12 +2,13 @@ import { Link } from "react-router-dom";
 
 type MoviesBrandProps = {
   name: string;
+  link: string;
 };
 
-function MoviesBrand({ name }: MoviesBrandProps) {
+function MoviesBrand({ name, link }: MoviesBrandProps) {
   return (
     <div className="flex gap-8 items-center">
-      <Link to={'/'}>
+      <Link to={link}>
         <span className="material-symbols-outlined text-emerald-700 text-3xl">
           arrow_back
         </span>

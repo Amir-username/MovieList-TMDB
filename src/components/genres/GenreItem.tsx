@@ -1,13 +1,20 @@
+import { Link } from "react-router-dom";
+import { Genre } from "../../models/Genre";
+
 type GenreItemProps = {
-  name: string;
+  genre: Genre;
   color: string;
 };
 
-function GenreItem({ name, color }: GenreItemProps) {
+function GenreItem({ genre, color }: GenreItemProps) {
   return (
-    <div className={`flex w-48 h-48 rounded-lg p-5 ${color} items-center justify-center`}>
-      <span className="text-xl font-semibold text-white">{name}</span>
-    </div>
+    <Link to={"../genre/"} state={genre}>
+      <div
+        className={`flex w-48 h-48 rounded-lg p-5 ${color} items-center justify-center`}
+      >
+        <span className="text-xl font-semibold text-white">{genre.name}</span>
+      </div>
+    </Link>
   );
 }
 
