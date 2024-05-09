@@ -15,7 +15,6 @@ function TvDetails() {
     const [genres, setGenres] = useState<Genre[]>([]);
   
     useEffect(() => {
-      console.log(genresContext);
       const tvGenres: Genre[] = [];
       genresContext.map((genre) => {
         tv.genre_ids.map((id: number) => {

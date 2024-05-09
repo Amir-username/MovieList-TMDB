@@ -7,7 +7,7 @@ function AllSeries() {
 
   return (
     <div className="flex flex-col m-5 gap-10 mb-28">
-      <MoviesBrand name="series"/>
+      <MoviesBrand link="/" name="series"/>
       <AllSeriesContent series={location.state} />
     </div>
   );
