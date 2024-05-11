@@ -6,34 +6,70 @@ import { Tv } from "../../models/Tv";
 import Brand from "../brand/Brand";
 import MovieCarousel from "../carousel/MovieCarousel";
 import TvCarousel from "../carousel/TvCarousel";
-
+import Loading from "../loading/HomeLoading";
+import HomeLoading from "../loading/HomeLoading";
 
 function MovieHome() {
   const [movies, setMovies] = useState<Movie[]>([]);
+  const [moviesLoading, setMoviesLoading] = useState<boolean>(false);
+  const [moviesError, setMoviesError] = useState<boolean>(false);
+
   const [series, setSeries] = useState<Tv[]>([]);
+  const [seriesLoading, setSeriesLoading] = useState<boolean>(false);
+  const [seriesError, setSeriesError] = useState<boolean>(false);
 
   useEffect(() => {
-    axios.get(BaseURL + "/discover/movie?page=1", options).then((res) => {
-      const movieList = res.data.results;
-      setMovies(movieList);
-    });
+    setMoviesLoading(true);
+
+    const fetchMovies = async () => {
+      try {
+        const res = await axios.get(
+          BaseURL + "/discover/movie?page=1",
+          options
+        );
+        const data = await res.data;
+        setMovies(data.results);
+        setMoviesLoading(false);
+      } catch (error: any) {
+        setMoviesError(true);
+        console.log(error.message);
+      }
+    };
+
+    fetchMovies();
   }, []);
 
   useEffect(() => {
-    axios.get(BaseURL + "/discover/tv?page=1", options).then((res) => {
-      const tvList = res.data.results;
-      setSeries(tvList);
-    });
+    setSeriesLoading(true);
+
+    const fetchTv = async () => {
+      try {
+        const res = await axios.get(BaseURL + "/discover/tv?page=1", options);
+        const data = await res.data;
+
+        setSeries(data.results);
+        setSeriesLoading(false);
+      } catch (error: any) {
+        setSeriesError(true);
+        console.log(error.message);
+      }
+    };
+
+    fetchTv();
   }, []);
-
-
 
   return (
     <div className="p-5 mb-20">
       <div className="flex flex-col">
-          <Brand />
-          <MovieCarousel movies={movies} />
-          <TvCarousel series={series} />
+        <Brand />
+        {moviesLoading || seriesLoading ? (
+          <HomeLoading />
+        ) : (
+          <>
+            <MovieCarousel movies={movies} />
+            <TvCarousel series={series} />
+          </>
+        )}
       </div>
     </div>
   );
