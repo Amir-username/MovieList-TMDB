@@ -5,10 +5,12 @@ import { Genre } from "../../models/Genre";
 import axios from "axios";
 import { BaseURL, options } from "../../requestConfig";
 import { Movie } from "../../models/Movie";
+import AllMovies from "../moviePage/AllMovies";
+import AllMoviesContent from "../moviePage/AllMoviesContent";
 
 function Explore() {
   const [genres, setGenres] = useState<Genre[]>([]);
-  const [movies, setMovies] = useState<Movie[]>([]);
+  const [movieResults, setMovieResults] = useState<Movie[]>([]);
 
   useEffect(() => {
     axios.get(BaseURL + "/genre/movie/list", options).then((res) => {
@@ -19,8 +21,12 @@ function Explore() {
 
   return (
     <div className="flex flex-col p-5 gap-8">
-      <SearchBox />
-      <Genres genres={genres} />
+      <SearchBox setMovieResults={setMovieResults} />
+      {movieResults.length ? (
+        <AllMoviesContent movies={movieResults} />
+      ) : (
+        <Genres genres={genres} />
+      )}
     </div>
   );
 }

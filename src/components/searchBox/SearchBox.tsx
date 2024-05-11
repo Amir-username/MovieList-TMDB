@@ -1,4 +1,53 @@
-function SearchBox() {
+import axios, { CanceledError } from "axios";
+import { useEffect, useState } from "react";
+import { BaseURL, options } from "../../requestConfig";
+import { Movie } from "../../models/Movie";
+
+type SearchBoxProps = {
+  setMovieResults: React.Dispatch<React.SetStateAction<Movie[]>>;
+};
+
+function SearchBox({ setMovieResults }: SearchBoxProps) {
+  const [search, setSearch] = useState<string>("");
+
+  useEffect(() => {
+    const abortController = new AbortController();
+
+    const fetchMovies = async () => {
+      try {
+        const res = await axios.get(
+          BaseURL + `/search/movie?query=${search}&page=1`,
+          {
+            headers: {
+              accept: "application/json",
+              Authorization:
+                "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzNzBlMDc5MDVlMmY0OTZhYTc1ODllZDdiYmUwOTI5NCIsInN1YiI6IjY2Mzc5YTJiMGMxMjU1MDEyNjdkNzE0NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ADu5IS26w5oary4tusBB-YeP5_QFkl-PE2zjiq6TtjY",
+            },
+            signal: abortController.signal,
+          }
+        );
+  
+        const data = await res.data
+        setMovieResults(data.results)
+      }
+      catch (error: any) {
+        if (error.name !== "CanceledError") {
+          console.log('error:', error)
+        }
+      }
+    };
+
+    fetchMovies();
+
+    return () => {
+      abortController.abort();
+    };
+  }, [search]);
+
+  const onSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearch(e.target.value);
+  };
+
   return (
     <div className="flex items-center justify-center">
       <div className="relative">
@@ -7,6 +56,7 @@ function SearchBox() {
         </span>
       </div>
       <input
+        onChange={onSearch}
         className="placeholder:text-gray-400 pl-10 text-gray-600 ring-1 focus:outline-none border-0 focus:ring-2 focus:ring-emerald-400 ring-gray-300 p-4 rounded-full w-full"
         placeholder="search movies"
       />
