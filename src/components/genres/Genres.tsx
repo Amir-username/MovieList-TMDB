@@ -3,6 +3,7 @@ import GenreItem from "./GenreItem";
 
 type GenresProps = {
   genres: Genre[];
+  title: string;
 };
 
 const Colors = [
@@ -18,18 +19,26 @@ const Colors = [
   "bg-amber-700",
 ];
 
-function Genres({ genres }: GenresProps) {
+function Genres({ genres, title }: GenresProps) {
   return (
-    <div className="flex flex-wrap gap-1 mb-20 bg">
-      {genres.map((genre) => {
-        return (
-          <GenreItem
-            key={genre.id}
-            genre={genre}
-            color={Colors[Math.floor(Math.random() * Colors.length)]}
-          />
-        );
-      })}
+    <div className="flex flex-col gap-5">
+      <div className="flex gap-1">
+        <span className="material-symbols-outlined text-emerald-400 text-3xl">
+          theater_comedy
+        </span>
+        <div className="text-gray-500 text-2xl font-semibold">{title}</div>
+      </div>
+      <div className="flex flex-wrap gap-1 mb-20 bg">
+        {genres.map((genre) => {
+          return (
+            <GenreItem
+              key={genre.id}
+              genre={genre}
+              color={Colors[Math.floor(Math.random() * Colors.length)]}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 }

@@ -9,21 +9,22 @@ import AllMoviesContent from "../moviePage/AllMoviesContent";
 import { Tv } from "../../models/Tv";
 
 function Explore() {
-  const [genres, setGenres] = useState<Genre[]>([]);
+  const [movieGenres, setMovieGenres] = useState<Genre[]>([]);
+  const [tvGenres, setTvGenres] = useState<Genre[]>([]);
+
   const [movieResults, setMovieResults] = useState<Movie[]>([]);
-  const [tvResults, setTvResults] = useState<Tv[]>([]);
 
   useEffect(() => {
     axios.get(BaseURL + "/genre/movie/list", options).then((res) => {
       const genreList = res.data.genres;
-      setGenres(genreList);
+      setMovieGenres(genreList);
     });
   }, []);
 
   useEffect(() => {
-    axios.get(BaseURL + "/genre/movie/list", options).then((res) => {
+    axios.get(BaseURL + "/genre/tv/list", options).then((res) => {
       const genreList = res.data.genres;
-      setGenres(genreList);
+      setTvGenres(genreList);
     });
   }, []);
 
@@ -33,7 +34,10 @@ function Explore() {
       {movieResults.length ? (
         <AllMoviesContent movies={movieResults} />
       ) : (
-        <Genres genres={genres} />
+        <div>
+          <Genres genres={movieGenres} title="movies" />
+          <Genres genres={tvGenres} title="tv show" />
+        </div>
       )}
     </div>
   );
