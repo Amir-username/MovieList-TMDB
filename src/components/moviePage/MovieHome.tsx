@@ -6,8 +6,8 @@ import { Tv } from "../../models/Tv";
 import Brand from "../brand/Brand";
 import MovieCarousel from "../carousel/MovieCarousel";
 import TvCarousel from "../carousel/TvCarousel";
-import Loading from "../loading/HomeLoading";
 import HomeLoading from "../loading/HomeLoading";
+import HomeError from "../errorPage/HomeError";
 
 function MovieHome() {
   const [movies, setMovies] = useState<Movie[]>([]);
@@ -23,10 +23,7 @@ function MovieHome() {
 
     const fetchMovies = async () => {
       try {
-        const res = await axios.get(
-          BaseURL + "/discover/movie?page=1",
-          options
-        );
+        const res = await axios.get(BaseURL + "/discove/movie?page=1", options);
         const data = await res.data;
         setMovies(data.results);
         setMoviesLoading(false);
@@ -62,7 +59,9 @@ function MovieHome() {
     <div className="p-5 mb-20">
       <div className="flex flex-col">
         <Brand />
-        {moviesLoading || seriesLoading ? (
+        {moviesError || seriesError ? (
+          <HomeError />
+        ) : moviesLoading || seriesLoading ? (
           <HomeLoading />
         ) : (
           <>
