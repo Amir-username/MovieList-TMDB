@@ -9,7 +9,7 @@ import MoviesBrand from "../brand/MoviesBrand";
 
 function GenrePage() {
   const location = useLocation();
-  const genre: Genre = location.state;
+  const {genre, title} = location.state;
 
   const [movies, setMovies] = useState<Movie[]>([]);
 
@@ -17,7 +17,7 @@ function GenrePage() {
     axios
       .get(
         BaseURL +
-          `/discover/movie?page=1&sort_by=popularity.desc&with_genres=${genre.id}`,
+          `/discover/${title}?page=1&sort_by=popularity.desc&with_genres=${genre.id}`,
         options
       )
       .then((res) => {

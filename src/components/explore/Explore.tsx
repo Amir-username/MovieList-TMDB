@@ -6,7 +6,7 @@ import axios from "axios";
 import { BaseURL, options } from "../../requestConfig";
 import { Movie } from "../../models/Movie";
 import AllMoviesContent from "../moviePage/AllMoviesContent";
-import { Tv } from "../../models/Tv";
+
 
 function Explore() {
   const [movieGenres, setMovieGenres] = useState<Genre[]>([]);
@@ -35,8 +35,8 @@ function Explore() {
         <AllMoviesContent movies={movieResults} />
       ) : (
         <div>
-          <Genres genres={movieGenres} title="movies" />
-          <Genres genres={tvGenres} title="tv show" />
+          <Genres genres={movieGenres} title="movie" />
+          <Genres genres={tvGenres} title="tv" />
         </div>
       )}
     </div>
