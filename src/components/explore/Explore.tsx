@@ -34,7 +34,7 @@ function Explore() {
       {movieResults.length ? (
         <AllMoviesContent movies={movieResults} />
       ) : (
-        <div>
+        <div className="flex flex-col">
           <Genres genres={movieGenres} title="movie" />
           <Genres genres={tvGenres} title="tv" />
         </div>

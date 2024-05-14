@@ -1,5 +1,4 @@
 import { useLocation } from "react-router-dom";
-import { Genre } from "../../models/Genre";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { BaseURL, options } from "../../requestConfig";
