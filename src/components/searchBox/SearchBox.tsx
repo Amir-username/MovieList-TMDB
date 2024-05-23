@@ -1,6 +1,6 @@
-import axios, { CanceledError } from "axios";
+import axios from "axios";
 import { useEffect, useState } from "react";
-import { BaseURL, options } from "../../requestConfig";
+import { BaseURL } from "../../requestConfig";
 import { Movie } from "../../models/Movie";
 
 type SearchBoxProps = {
@@ -26,13 +26,12 @@ function SearchBox({ setMovieResults }: SearchBoxProps) {
             signal: abortController.signal,
           }
         );
-  
-        const data = await res.data
-        setMovieResults(data.results)
-      }
-      catch (error: any) {
+
+        const data = await res.data;
+        setMovieResults(data.results);
+      } catch (error: any) {
         if (error.name !== "CanceledError") {
-          console.log('error:', error)
+          console.log("error:", error);
         }
       }
     };
@@ -49,7 +48,7 @@ function SearchBox({ setMovieResults }: SearchBoxProps) {
   };
 
   return (
-    <div className="flex items-center justify-center">
+    <div className="flex items-center justify-center w-full">
       <div className="relative">
         <span className="text-xl top-0.5 absolute inset-y-0 start-0 flex items-center ps-3 material-symbols-outlined text-gray-400">
           search

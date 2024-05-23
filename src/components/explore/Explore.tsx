@@ -6,7 +6,7 @@ import axios from "axios";
 import { BaseURL, options } from "../../requestConfig";
 import { Movie } from "../../models/Movie";
 import AllMoviesContent from "../moviePage/AllMoviesContent";
-
+import SearchResult from "./SearchResult";
 
 function Explore() {
   const [movieGenres, setMovieGenres] = useState<Genre[]>([]);
@@ -30,9 +30,11 @@ function Explore() {
 
   return (
     <div className="flex flex-col p-5 gap-8">
-      <SearchBox setMovieResults={setMovieResults} />
+      <div className="flex gap-2 items-center">
+        <SearchBox setMovieResults={setMovieResults} />
+      </div>
       {movieResults.length ? (
-        <AllMoviesContent movies={movieResults} />
+        <SearchResult movieResults={movieResults}/>
       ) : (
         <div className="flex flex-col">
           <Genres genres={movieGenres} title="movie" />
