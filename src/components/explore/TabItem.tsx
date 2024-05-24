@@ -2,11 +2,13 @@ type TabItemProps = {
   text: string;
   active: string;
   setActive: React.Dispatch<React.SetStateAction<string>>;
+  setTabState: React.Dispatch<React.SetStateAction<string>>;
 };
 
-function TabItem({ text, active, setActive }: TabItemProps) {
+function TabItem({ text, active, setActive, setTabState }: TabItemProps) {
   const onActive = () => {
     setActive(text);
+    setTabState(text);
   };
 
   return (

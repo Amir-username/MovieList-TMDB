@@ -2,12 +2,14 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { BaseURL } from "../../requestConfig";
 import { Movie } from "../../models/Movie";
+import { Tv } from "../../models/Tv";
 
 type SearchBoxProps = {
   setMovieResults: React.Dispatch<React.SetStateAction<Movie[]>>;
+  setTvResults: React.Dispatch<React.SetStateAction<Tv[]>>;
 };
 
-function SearchBox({ setMovieResults }: SearchBoxProps) {
+function SearchBox({ setMovieResults, setTvResults }: SearchBoxProps) {
   const [search, setSearch] = useState<string>("");
 
   useEffect(() => {
@@ -29,6 +31,39 @@ function SearchBox({ setMovieResults }: SearchBoxProps) {
 
         const data = await res.data;
         setMovieResults(data.results);
+      } catch (error: any) {
+        if (error.name !== "CanceledError") {
+          console.log("error:", error);
+        }
+      }
+    };
+
+    fetchMovies();
+
+    return () => {
+      abortController.abort();
+    };
+  }, [search]);
+
+  useEffect(() => {
+    const abortController = new AbortController();
+
+    const fetchMovies = async () => {
+      try {
+        const res = await axios.get(
+          BaseURL + `/search/tv?query=${search}&page=1`,
+          {
+            headers: {
+              accept: "application/json",
+              Authorization:
+                "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzNzBlMDc5MDVlMmY0OTZhYTc1ODllZDdiYmUwOTI5NCIsInN1YiI6IjY2Mzc5YTJiMGMxMjU1MDEyNjdkNzE0NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ADu5IS26w5oary4tusBB-YeP5_QFkl-PE2zjiq6TtjY",
+            },
+            signal: abortController.signal,
+          }
+        );
+
+        const data = await res.data;
+        setTvResults(data.results);
       } catch (error: any) {
         if (error.name !== "CanceledError") {
           console.log("error:", error);

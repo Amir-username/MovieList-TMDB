@@ -8,7 +8,7 @@ type AllMovieItemProps = {
 
 function AllMovieItem({ movie }: AllMovieItemProps) {
   return (
-    <Link to={'../movie-details'} state={movie}>
+    <Link to={"../movie-details"} state={movie}>
       <div className="flex flex-col flex-shrink-0 gap-2 items-center w-28 h-full">
         <img
           src={ImageUrl + movie.poster_path}

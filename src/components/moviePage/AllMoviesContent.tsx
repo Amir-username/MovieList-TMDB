@@ -9,7 +9,7 @@ function AllMoviesContent({ movies }: AllMoviesContentProps) {
   return (
     <div className="flex flex-wrap justify-center gap-5 content-between">
       {movies.map((movie) => {
-        return <AllMovieItem movie={movie} key={movie.id}/>;
+        return <AllMovieItem movie={movie} key={movie.id} />;
       })}
     </div>
   );
