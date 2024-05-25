@@ -1,17 +1,22 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 type MovieBackDropProps = {
   image: string;
 };
 
 function MovieBackDrop({ image }: MovieBackDropProps) {
+  const navigate = useNavigate();
+
   return (
     <div className="relative">
-      <Link to={"/"}>
-        <span className="absolute left-2 top-3 material-symbols-outlined text-gray-100 text-3xl">
-          arrow_back
-        </span>
-      </Link>
+      {/* <Link to={'../movie-details'}> */}
+      <span
+        onClick={() => navigate(-1)}
+        className="absolute left-2 top-3 material-symbols-outlined text-gray-100 text-3xl"
+      >
+        arrow_back
+      </span>
+      {/* </Link> */}
       <img
         src={image}
         alt="movie poster"
