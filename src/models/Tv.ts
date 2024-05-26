@@ -8,6 +8,7 @@ export class Tv {
   overview: string;
   first_air_date: string;
   original_language: string;
+  vote_average: number
 
   constructor(
     id: number,
@@ -18,6 +19,7 @@ export class Tv {
     overview: string,
     first_air_date: string,
     original_language: string,
+    vote_average: number
   ) {
     this.id = id;
     this.name = name;
@@ -26,6 +28,7 @@ export class Tv {
     this.created_by = created_by;
     this.overview = overview;
     this.first_air_date = first_air_date;
-    this.original_language = original_language
+    this.original_language = original_language,
+    this.vote_average = vote_average
   }
 }

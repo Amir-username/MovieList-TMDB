@@ -94,7 +94,7 @@ export class Movie {
   release_date: string;
   original_language: string;
   overview: string;
-  vote_average: number
+  vote_average: number;
 
   constructor(
     id: number,
@@ -105,7 +105,7 @@ export class Movie {
     release_date: string,
     original_language: string,
     overview: string,
-    vote_average: number
+    vote_average: number,
   ) {
     this.id = id;
     this.title = title;
