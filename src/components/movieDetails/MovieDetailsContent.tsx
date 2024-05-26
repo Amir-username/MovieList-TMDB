@@ -3,14 +3,16 @@ import { Movie } from "../../models/Movie";
 import { ImageUrl } from "../../requestConfig";
 import MovieTitle from "./MovieTitle";
 
+import STAR from "../../assets/svg/STAR.svg";
+
 type MovieDetailsContentProps = {
-  movie: Movie
-  genres: Genre[]
-}
+  movie: Movie;
+  genres: Genre[];
+};
 
 function MovieDetailsContent({ movie, genres }: MovieDetailsContentProps) {
   return (
-    <div className="flex flex-col p-1 gap-8">
+    <div className="flex flex-col p-1 gap-8 mb-32">
       <div className="flex gap-2 justify-between">
         <div className="flex flex-col p-2 gap-4">
           <MovieTitle title={movie.title} />
@@ -48,8 +50,16 @@ function MovieDetailsContent({ movie, genres }: MovieDetailsContentProps) {
         />
       </div>
       <div className="p-2 text-lg text-gray-800">{movie.overview}</div>
+      <div className="flex gap-1 items-center justify-center">
+        <img src={STAR} alt="vote" className="w-10 h-10" />
+        <span className="text-3xl text-gray-500 font-semibold">
+          {movie.vote_average.toString().slice(0, -2)}
+        </span>
+      </div>
     </div>
   );
 }
 
 export default MovieDetailsContent;
+
+// #F19E39

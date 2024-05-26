@@ -94,6 +94,7 @@ export class Movie {
   release_date: string;
   original_language: string;
   overview: string;
+  vote_average: number
 
   constructor(
     id: number,
@@ -103,7 +104,8 @@ export class Movie {
     backdrop_path: string,
     release_date: string,
     original_language: string,
-    overview: string
+    overview: string,
+    vote_average: number
   ) {
     this.id = id;
     this.title = title;
@@ -113,5 +115,6 @@ export class Movie {
     this.release_date = release_date;
     this.original_language = original_language;
     this.overview = overview;
+    this.vote_average = vote_average;
   }
 }
