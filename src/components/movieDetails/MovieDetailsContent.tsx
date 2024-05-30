@@ -1,9 +1,12 @@
+import { useEffect, useState } from "react";
 import { Genre } from "../../models/Genre";
 import { Movie } from "../../models/Movie";
-import { ImageUrl } from "../../requestConfig";
-import MovieTitle from "./MovieTitle";
-
-import STAR from "../../assets/svg/STAR.svg";
+import { BaseURL, ImageUrl, options } from "../../requestConfig";
+import MovieInfo from "./MovieInfo";
+import MovieRating from "./MovieRating";
+import axios from "axios";
+import { Cast } from "../../models/Cast";
+import CastCarousel from "../carousel/CastCarousel";
 
 type MovieDetailsContentProps = {
   movie: Movie;
@@ -11,38 +14,26 @@ type MovieDetailsContentProps = {
 };
 
 function MovieDetailsContent({ movie, genres }: MovieDetailsContentProps) {
+  const [cast, setCast] = useState<Cast[]>([]);
+
+  useEffect(() => {
+    const fetchCast = async () => {
+      const res = await axios.get(
+        BaseURL + `/movie/${movie.id}/credits`,
+        options
+      );
+      const data = await res.data;
+
+      setCast(data.cast);
+    };
+
+    fetchCast();
+  }, []);
+
   return (
     <div className="flex flex-col p-1 gap-8 mb-32">
       <div className="flex gap-2 justify-between">
-        <div className="flex flex-col p-2 gap-4">
-          <MovieTitle title={movie.title} />
-          <div className="flex gap-2 items-center">
-            <span className="material-symbols-outlined text-emerald-700 text-xl">
-              calendar_today
-            </span>
-            <div className="font-semibold text-gray-600 text-lg">
-              {movie.release_date}
-            </div>
-          </div>
-          <div className="flex gap-2 items-center">
-            <span className="material-symbols-outlined text-emerald-700 text-xl">
-              theater_comedy
-            </span>
-            <div className="font-semibold text-gray-600 text-lg">
-              {genres.map((genre) => {
-                return <span key={genre.id}>{genre.name} </span>;
-              })}
-            </div>
-          </div>
-          <div className="flex gap-2 items-center">
-            <span className="material-symbols-outlined text-emerald-700 text-xl">
-              language
-            </span>
-            <div className="font-semibold text-gray-600 text-lg">
-              {movie.original_language.toUpperCase()}
-            </div>
-          </div>
-        </div>
+        <MovieInfo genres={genres} movie={movie} />
         <img
           src={ImageUrl + movie.poster_path}
           alt="movie poster"
@@ -50,14 +41,8 @@ function MovieDetailsContent({ movie, genres }: MovieDetailsContentProps) {
         />
       </div>
       <div className="p-2 text-lg text-gray-800">{movie.overview}</div>
-      <div className="flex gap-1 items-center justify-center">
-        <img src={STAR} alt="vote" className="w-10 h-10" />
-        <span className="text-3xl text-gray-500 font-semibold">
-          {movie.vote_average.toString().length > 4
-            ? movie.vote_average.toString().slice(0, -2)
-            : movie.vote_average.toString().slice(0, -1)}
-        </span>
-      </div>
+      <MovieRating movie={movie} />
+      <CastCarousel cast={cast} />
     </div>
   );
 }
