@@ -7,6 +7,8 @@ import MovieRating from "./MovieRating";
 import axios from "axios";
 import { Cast } from "../../models/Cast";
 import CastCarousel from "../carousel/CastCarousel";
+import ImageCarousel from "../carousel/ImageCarousel";
+import { Image } from "../../models/Image";
 
 type MovieDetailsContentProps = {
   movie: Movie;
@@ -15,6 +17,7 @@ type MovieDetailsContentProps = {
 
 function MovieDetailsContent({ movie, genres }: MovieDetailsContentProps) {
   const [cast, setCast] = useState<Cast[]>([]);
+  const [images, setImages] = useState<Image[]>([]);
 
   useEffect(() => {
     const fetchCast = async () => {
@@ -25,6 +28,19 @@ function MovieDetailsContent({ movie, genres }: MovieDetailsContentProps) {
       const data = await res.data;
 
       setCast(data.cast);
+    };
+
+    fetchCast();
+  }, []);
+
+  useEffect(() => {
+    const fetchCast = async () => {
+      const res = await axios.get(
+        BaseURL + `/movie/${movie.id}/images`,
+        options
+      );
+      const data = await res.data;
+      setImages(data.backdrops.slice(0, 10));
     };
 
     fetchCast();
@@ -43,6 +59,7 @@ function MovieDetailsContent({ movie, genres }: MovieDetailsContentProps) {
       <div className="p-2 text-lg text-gray-800">{movie.overview}</div>
       <MovieRating movie={movie} />
       <CastCarousel cast={cast} />
+      <ImageCarousel images={images} />
     </div>
   );
 }
