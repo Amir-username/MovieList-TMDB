@@ -42,7 +42,6 @@ function Explore() {
       ) : (
         <div className="flex flex-col">
           <Genres genres={movieGenres} title="movie" />
-          <Genres genres={tvGenres} title="tv" />
         </div>
       )}
     </div>

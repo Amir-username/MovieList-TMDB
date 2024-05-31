@@ -22,12 +22,6 @@ const Colors = [
 function Genres({ genres, title }: GenresProps) {
   return (
     <div className="flex flex-col gap-5">
-      <div className="flex gap-1">
-        <span className="material-symbols-outlined text-emerald-400 text-3xl">
-          theater_comedy
-        </span>
-        <div className="text-gray-500 text-2xl font-semibold">{title}</div>
-      </div>
       <div className="flex flex-wrap gap-1 mb-20 bg">
         {genres.map((genre) => {
           return (

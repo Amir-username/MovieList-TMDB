@@ -26,7 +26,7 @@ function GenrePage() {
 
   return (
     <div className="flex flex-col m-5 gap-8">
-      <MoviesBrand name={genre.name} link="../explore/"/>
+      <MoviesBrand name={genre.name} />
       <AllMoviesContent movies={movies} />
     </div>
   );
