@@ -10,8 +10,6 @@ import { Tv } from "../../models/Tv";
 
 function Explore() {
   const [movieGenres, setMovieGenres] = useState<Genre[]>([]);
-  const [tvGenres, setTvGenres] = useState<Genre[]>([]);
-
   const [movieResults, setMovieResults] = useState<Movie[]>([]);
   const [tvResults, setTvResults] = useState<Tv[]>([]);
 
@@ -19,13 +17,6 @@ function Explore() {
     axios.get(BaseURL + "/genre/movie/list", options).then((res) => {
       const genreList = res.data.genres;
       setMovieGenres(genreList);
-    });
-  }, []);
-
-  useEffect(() => {
-    axios.get(BaseURL + "/genre/tv/list", options).then((res) => {
-      const genreList = res.data.genres;
-      setTvGenres(genreList);
     });
   }, []);
 
