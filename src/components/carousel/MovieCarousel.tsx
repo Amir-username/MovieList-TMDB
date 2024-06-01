@@ -9,7 +9,7 @@ type MovieCarouselProps = {
 function MovieCarousel({ movies }: MovieCarouselProps) {
   return (
     <div className="flex flex-col mt-8 gap-8">
-      <Link to={'movies/'} state={movies}>
+      <Link to={'movies'} state={movies}>
         <div className="text-center text-2xl font-semibold text-gray-400">
           movies
         </div>

@@ -8,12 +8,12 @@ export class Cast {
     id: number,
     name: string,
     profile_path: string,
-    character: string
+    character: string,
   ) {
     (this.id = id),
       (this.name = name),
       (this.profile_path = profile_path),
-      (this.character = character);
+      (this.character = character)
   }
 }
 

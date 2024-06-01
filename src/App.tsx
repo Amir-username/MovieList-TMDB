@@ -14,6 +14,7 @@ import { MovieGenreContext } from "./contexts/MovieGenreContext";
 import { TvGenreContext } from "./contexts/TvGenreContext";
 import TvDetails from "./components/tvDetails/TvDetails";
 import GenrePage from "./components/genres/GenrePage";
+import CreditDetails from "./components/credits/CreditDetails";
 
 function App() {
   const [movieGenres, setMovieGenres] = useState<Genre[]>([]);
@@ -44,6 +45,7 @@ function App() {
                 <Route index path="/movies" element={<AllMovies />} />
                 <Route path="movie-details" element={<MovieDetails />} />
                 <Route path="tv-details" element={<TvDetails />} />
+                <Route path="credit-details" element={<CreditDetails />} />
                 <Route path="/series" element={<AllSeries />} />
                 <Route path="watchlist/" element={<WatchList />} />
                 <Route path="*" />

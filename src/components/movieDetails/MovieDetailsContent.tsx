@@ -32,7 +32,6 @@ function MovieDetailsContent({ movie, genres }: MovieDetailsContentProps) {
         options
       );
       const data = await res.data;
-
       setCast(data.cast);
     };
 
