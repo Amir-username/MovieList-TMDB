@@ -4,9 +4,9 @@ import { Image } from "../../models/Image";
 import { Tv } from "../../models/Tv";
 import { BaseURL, ImageUrl, options } from "../../requestConfig";
 import TvInfo from "./TvInfo";
-import TvRating from "./TvRating";
 import axios from "axios";
 import ImageCarousel from "../carousel/ImageCarousel";
+import MovieRating from "../movieDetails/MovieRating";
 
 type TvDetailsContentProps = {
   tv: Tv;
@@ -40,7 +40,7 @@ function TvDetailsContent({ tv, genres }: TvDetailsContentProps) {
         />
       </div>
       <div className="p-2 text-lg text-gray-800">{tv.overview}</div>
-      <TvRating tv={tv} />
+      <MovieRating movie={tv} />
       {
         images && <ImageCarousel images={images} />
       }

@@ -26,7 +26,7 @@ function MovieHome() {
     setMoviesError
   );
 
-  useMovie("/discover/tv?page=1", setSeries, setSeriesLoading, setSeriesError);
+  useMovie("/discover/tv?page=1&sort_by=vote_count.desc", setSeries, setSeriesLoading, setSeriesError);
 
   return (
     <div className="p-5 mb-20">
