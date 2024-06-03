@@ -8,7 +8,7 @@ type MovieCarouselItemProps = {
 
 function MovieCarouselItem({ movie }: MovieCarouselItemProps) {
   return (
-    <Link to={'movie-details/'} state={movie}>
+    <Link to={'../movie-details'} state={movie}>
       <div className="flex flex-col flex-shrink-0 gap-2 items-center w-36 h-full">
         <img
           src={ImageUrl + movie.poster_path}
