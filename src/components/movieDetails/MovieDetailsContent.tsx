@@ -11,6 +11,7 @@ import ImageCarousel from "../carousel/ImageCarousel";
 import { Image } from "../../models/Image";
 import SimilarMovies from "../carousel/SimilarMovies";
 import MovieBackDrop from "./MovieBackDrop";
+import AddToList from "./AddToList";
 
 type MovieDetailsContentProps = {
   movie: Movie;
@@ -85,6 +86,7 @@ function MovieDetailsContent({ movie, genres }: MovieDetailsContentProps) {
         </div>
         <div className="p-2 text-lg text-gray-800">{currMovie.overview}</div>
         <MovieRating movie={currMovie} />
+        <AddToList movie={movie} />
         <CastCarousel cast={cast} />
         <ImageCarousel images={images} />
         <SimilarMovies
