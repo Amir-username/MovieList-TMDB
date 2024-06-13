@@ -26,6 +26,8 @@ function MovieDetailsContent({ movie, genres }: MovieDetailsContentProps) {
   const [similarMovies, setSimilarMovies] = useState<Movie[]>([]);
   const [scrollToTop, setScrollToTop] = useState<boolean>(false);
 
+  const [snackbar, setSnackbar] = useState<boolean>(false);
+
   useEffect(() => {
     const fetchCast = async () => {
       const res = await axios.get(
@@ -86,7 +88,7 @@ function MovieDetailsContent({ movie, genres }: MovieDetailsContentProps) {
         </div>
         <div className="p-2 text-lg text-gray-800">{currMovie.overview}</div>
         <MovieRating movie={currMovie} />
-        <AddToList movie={movie} />
+        <AddToList movie={movie} setSnackbar={setSnackbar} />
         <CastCarousel cast={cast} />
         <ImageCarousel images={images} />
         <SimilarMovies
@@ -95,6 +97,13 @@ function MovieDetailsContent({ movie, genres }: MovieDetailsContentProps) {
           setScrollToTop={setScrollToTop}
         />
       </div>
+      {snackbar && (
+        <div className="flex bottom-64 left-24 sticky items-center justify-center duration-1000 ">
+          <div className="bg-emerald-400 w-fit p-4 rounded-full text-white text-xl opacity-95">
+            {movie.title} has been added to your watchlist
+          </div>
+        </div>
+      )}
     </>
   );
 }

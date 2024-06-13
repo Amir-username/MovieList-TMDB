@@ -28,6 +28,7 @@ function ListItem({ movie, setWatchList }: ListItemProps) {
     setWatchList((watchlist) => {
       return watchlist.filter((movieItem) => movieItem.id != movie.id);
     });
+
   };
 
   return (

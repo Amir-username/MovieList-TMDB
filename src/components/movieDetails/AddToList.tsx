@@ -2,19 +2,34 @@ import { Movie } from "../../models/Movie";
 
 type AddToListProps = {
   movie: Movie;
+  setSnackbar: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-function AddToList({ movie }: AddToListProps) {
+function AddToList({ movie, setSnackbar }: AddToListProps) {
   const onAdd = () => {
     const watchlist = localStorage.getItem("watchlist");
     if (watchlist) {
-      const currMovies = JSON.parse(watchlist);
-      const newList = [...currMovies, movie];
+      const currMovies: Movie[] = JSON.parse(watchlist);
 
-      localStorage.setItem("watchlist", JSON.stringify(newList));
+      if (!currMovies.some((movieItem) => movieItem.id === movie.id)) {
+        const newList = [...currMovies, movie];
+        localStorage.setItem("watchlist", JSON.stringify(newList));
+
+        setSnackbar(true);
+
+        setTimeout(() => {
+          setSnackbar(false);
+        }, 2000);
+      }
     } else {
       const newList = [movie];
       localStorage.setItem("watchlist", JSON.stringify(newList));
+
+      setSnackbar(true);
+
+      setTimeout(() => {
+        setSnackbar(false);
+      }, 2000);
     }
   };
 

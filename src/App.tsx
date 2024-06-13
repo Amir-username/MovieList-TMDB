@@ -35,25 +35,25 @@ function App() {
   return (
     <>
       <div>
-        <MovieGenreContext.Provider value={movieGenres}>
-          <TvGenreContext.Provider value={tvGenres}>
-            <Routes>
-              <Route path="/">
-                <Route path="explore/" element={<Explore />} />
-                <Route path="genre/" element={<GenrePage />} />
-                <Route index element={<MovieHome />} />
-                <Route index path="/movies" element={<AllMovies />} />
-                <Route path="movie-details" element={<MovieDetails />} />
-                <Route path="tv-details" element={<TvDetails />} />
-                <Route path="credit-details" element={<CreditDetails />} />
-                <Route path="/series" element={<AllSeries />} />
-                <Route path="watchlist/" element={<WatchList />} />
-                <Route path="*" />
-              </Route>
-            </Routes>
-            <BottomNavigation />
-          </TvGenreContext.Provider>
-        </MovieGenreContext.Provider>
+          <MovieGenreContext.Provider value={movieGenres}>
+            <TvGenreContext.Provider value={tvGenres}>
+              <Routes>
+                <Route path="/">
+                  <Route path="explore/" element={<Explore />} />
+                  <Route path="genre/" element={<GenrePage />} />
+                  <Route index element={<MovieHome />} />
+                  <Route index path="/movies" element={<AllMovies />} />
+                  <Route path="movie-details" element={<MovieDetails />} />
+                  <Route path="tv-details" element={<TvDetails />} />
+                  <Route path="credit-details" element={<CreditDetails />} />
+                  <Route path="/series" element={<AllSeries />} />
+                  <Route path="watchlist/" element={<WatchList />} />
+                  <Route path="*" />
+                </Route>
+              </Routes>
+              <BottomNavigation />
+            </TvGenreContext.Provider>
+          </MovieGenreContext.Provider>
       </div>
     </>
   );
