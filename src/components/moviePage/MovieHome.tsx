@@ -38,8 +38,10 @@ function MovieHome() {
           <HomeLoading />
         ) : (
           <>
+            <div className="flex flex-col gap-8">
             <MovieCarousel movies={movies} />
             <TvCarousel series={series} />
+            </div>
           </>
         )}
       </div>

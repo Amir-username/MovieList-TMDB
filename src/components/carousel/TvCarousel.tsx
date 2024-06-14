@@ -14,7 +14,7 @@ function TvCarousel({ series }: TvCarouselProps) {
           series
         </div>
       </Link>
-      <div id="no-scrollbar" className="flex overflow-scroll gap-2">
+      <div id="no-scrollbar" className="flex overflow-scroll gap-2 md:gap-8 md:flex-wrap md:justify-center">
         {series.map((tv) => {
           return <TvCarouselItem tv={tv} key={tv.id} />;
         })}
