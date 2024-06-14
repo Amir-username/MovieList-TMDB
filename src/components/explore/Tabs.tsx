@@ -9,7 +9,7 @@ function Tabs({ setTabState }: TabsProps) {
   const [atcive, setActive] = useState<string>("movies");
 
   return (
-    <div className="flex justify-center gap-20 border-b-2 border-gray-200">
+    <div className="flex justify-center gap-20 border-b-2 border-gray-50">
       <TabItem
         text="movies"
         active={atcive}
