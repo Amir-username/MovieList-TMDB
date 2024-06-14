@@ -8,7 +8,7 @@ function MovieBackDrop({ image }: MovieBackDropProps) {
   const navigate = useNavigate();
 
   return (
-    <div className="relative">
+    <div className="relative md:px-32">
       {/* <Link to={'../movie-details'}> */}
       <span
         onClick={() => navigate(-1)}
@@ -20,7 +20,7 @@ function MovieBackDrop({ image }: MovieBackDropProps) {
       <img
         src={image}
         alt="movie poster"
-        className="w-full h-full object-cover"
+        className="w-full h-full md:h-96 md:brightness-50 object-cover"
       />
     </div>
   );

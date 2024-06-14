@@ -77,7 +77,7 @@ function MovieDetailsContent({ movie, genres }: MovieDetailsContentProps) {
   return (
     <>
       <MovieBackDrop image={ImageUrl + currMovie.backdrop_path} />
-      <div className="flex flex-col p-1 gap-8 mb-32">
+      <div className="flex flex-col p-1 gap-8 mb-32 md:px-32">
         <div className="flex gap-2 justify-between">
           <MovieInfo genres={genres} movie={currMovie} />
           <img
