@@ -18,7 +18,7 @@ function SearchBox({ setMovieResults, setTvResults }: SearchBoxProps) {
     const fetchMovies = async () => {
       try {
         const res = await axios.get(
-          BaseURL + `/search/movie?query=${search}&page=1`,
+          BaseURL + `/search/movie?query=${search}&page=1&include_adult=false`,
           {
             headers: {
               accept: "application/json",
@@ -51,7 +51,7 @@ function SearchBox({ setMovieResults, setTvResults }: SearchBoxProps) {
     const fetchMovies = async () => {
       try {
         const res = await axios.get(
-          BaseURL + `/search/tv?query=${search}&page=1`,
+          BaseURL + `/search/tv?query=${search}&page=1&include_adult=false`,
           {
             headers: {
               accept: "application/json",
@@ -83,7 +83,7 @@ function SearchBox({ setMovieResults, setTvResults }: SearchBoxProps) {
   };
 
   return (
-    <div className="flex items-center justify-center w-full">
+    <div className="flex items-center justify-center w-full md:w-96">
       <div className="relative">
         <span className="text-xl top-0.5 absolute inset-y-0 start-0 flex items-center ps-3 material-symbols-outlined text-gray-400">
           search

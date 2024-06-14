@@ -21,8 +21,8 @@ function Explore() {
   }, []);
 
   return (
-    <div className="flex flex-col p-5 gap-8">
-      <div className="flex gap-2 items-center">
+    <div className="flex flex-col p-5 gap-8 md:gap-16 md:px-32">
+      <div className="flex gap-2 items-center justify-center">
         <SearchBox
           setMovieResults={setMovieResults}
           setTvResults={setTvResults}

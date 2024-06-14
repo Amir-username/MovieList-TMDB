@@ -29,7 +29,7 @@ function MovieHome() {
   useMovie("/discover/tv?page=1&sort_by=vote_count.desc", setSeries, setSeriesLoading, setSeriesError);
 
   return (
-    <div className="p-5 mb-20">
+    <div className="p-5 mb-20 md:pl-28">
       <div className="flex flex-col">
         <Brand />
         {moviesError || seriesError ? (
