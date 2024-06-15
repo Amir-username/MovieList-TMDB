@@ -28,12 +28,13 @@ function ListItem({ movie, setWatchList }: ListItemProps) {
     setWatchList((watchlist) => {
       return watchlist.filter((movieItem) => movieItem.id != movie.id);
     });
-
   };
 
   return (
-    <div className="flex p-3 rounded-2xl w-full ring-1 ring-gray-100 dark:ring-gray-800
-     shadow-sm shadow-emerald-500 justify-between md:justify-between md:w-96 md:gap-5">
+    <div
+      className="flex p-3 rounded-2xl w-full ring-1 ring-gray-100 dark:ring-gray-800
+     shadow-sm shadow-emerald-500 justify-between md:justify-between md:w-96 md:gap-5"
+    >
       <div className="flex gap-5">
         <img
           src={ImageUrl + movie.poster_path}
@@ -57,7 +58,7 @@ function ListItem({ movie, setWatchList }: ListItemProps) {
       <div className="flex items-center justify-end p-3 gap-3">
         <span
           onClick={onWatched}
-          className={`material-symbols-outlined text-2xl ${
+          className={`material-symbols-outlined text-2xl cursor-pointer ${
             watched ? "text-emerald-500" : "text-gray-400"
           }`}
         >
@@ -65,7 +66,7 @@ function ListItem({ movie, setWatchList }: ListItemProps) {
         </span>
         <span
           onClick={onRemove}
-          className="material-symbols-outlined text-2xl text-gray-400"
+          className="material-symbols-outlined text-2xl text-gray-400 cursor-pointer"
         >
           remove
         </span>

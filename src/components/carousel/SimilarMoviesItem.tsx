@@ -20,7 +20,7 @@ function SimilarMoviesItem({
   return (
     <div
       onClick={changeMovie}
-      className="flex flex-col flex-shrink-0 gap-2 items-center w-36 h-full"
+      className="flex flex-col flex-shrink-0 gap-2 items-center w-36 h-full cursor-pointer"
     >
       <img
         src={ImageUrl + movie.poster_path}

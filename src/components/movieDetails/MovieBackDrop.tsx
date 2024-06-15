@@ -12,7 +12,7 @@ function MovieBackDrop({ image }: MovieBackDropProps) {
       {/* <Link to={'../movie-details'}> */}
       <span
         onClick={() => navigate(-1)}
-        className="absolute left-2 top-3 material-symbols-outlined text-gray-100 text-3xl"
+        className="absolute left-2 top-3 material-symbols-outlined text-gray-100 text-3xl cursor-pointer"
       >
         arrow_back
       </span>
