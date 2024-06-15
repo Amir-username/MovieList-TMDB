@@ -91,7 +91,9 @@ function SearchBox({ setMovieResults, setTvResults }: SearchBoxProps) {
       </div>
       <input
         onChange={onSearch}
-        className="placeholder:text-gray-400 pl-10 text-gray-600 ring-1 focus:outline-none border-0 focus:ring-2 focus:ring-emerald-400 ring-gray-300 p-4 rounded-full w-full"
+        className="dark:bg-gray-900 placeholder:text-gray-400 pl-10 text-gray-600 dark:text-gray-300 ring-1
+         focus:outline-none border-0 focus:ring-2 focus:ring-emerald-400
+         ring-gray-300 dark:ring-emerald-500 p-4 rounded-full w-full"
         placeholder="search movies"
       />
     </div>

@@ -11,7 +11,7 @@ function MovieRating({movie}: MovieRatingProsp) {
   return (
     <div className="flex gap-1 items-center justify-center">
       <img src={STAR} alt="vote" className="w-10 h-10" />
-      <span className="text-3xl text-gray-500 font-semibold">
+      <span className="text-3xl text-gray-500 dark:text-gray-300 font-semibold">
         {movie.vote_average.toString().length > 3
           ? movie.vote_average.toString().slice(0, 3)
           : movie.vote_average}

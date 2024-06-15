@@ -43,7 +43,7 @@ function CreditDetails() {
       <div className="flex flex-col p-3 gap-5 mb-20 md:px-32">
         <span
           onClick={() => navigate(-1)}
-          className="material-symbols-outlined text-emerald-700 text-3xl"
+          className="material-symbols-outlined text-emerald-700 dark:text-emerald-500 text-3xl"
         >
           arrow_back
         </span>

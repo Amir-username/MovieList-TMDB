@@ -8,7 +8,7 @@ type CreditMovieCarouselProps = {
 function CreditMovieCarousel({movies}: CreditMovieCarouselProps) {
   return (
     <div className="flex flex-col gap-3">
-      <div className="text-left text-xl text-gray-600 font-semibold">movies</div>
+      <div className="text-left text-xl text-gray-600 dark:text-gray-400 font-semibold">movies</div>
       <div id="no-scrollbar" className="flex overflow-scroll gap-2">
       {movies.map((movie) => {
         return <MovieCarouselItem movie={movie} key={movie.id} />;

@@ -15,7 +15,7 @@ function AllMovieItem({ movie }: AllMovieItemProps) {
           alt="movie poster"
           className="rounded-lg"
         />
-        <div className="text-sm text-gray-600 font-semibold">{movie.title}</div>
+        <div className="text-sm text-gray-600 font-semibold dark:text-gray-400">{movie.title}</div>
       </div>
     </Link>
   );

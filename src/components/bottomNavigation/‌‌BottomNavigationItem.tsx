@@ -24,14 +24,14 @@ function BottomNavigationItem({
       <div className="flex flex-col justify-center items-center" onClick={onItemClick}>
         <span
           className={`material-symbols-outlined text-3xl duration-500 ${
-            activeItem === name ? "text-emerald-600" : "text-gray-400"
+            activeItem === name ? "text-emerald-600 dark:text-emerald-500" : "text-gray-400"
           }`}
         >
           {icon}
         </span>
         <div
           className={`text-base duration-1000 ${
-            activeItem === name ? "text-emerald-600" : "text-gray-500"
+            activeItem === name ? "text-emerald-600 dark:text-emerald-500" : "text-gray-500 dark:text-gray-400"
           }`}
         >
           {name}

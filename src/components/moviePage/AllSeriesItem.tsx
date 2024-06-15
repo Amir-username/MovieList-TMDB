@@ -15,7 +15,7 @@ function AllSeriesItem({ tv }: AllSeriesItemProps) {
         alt="movie poster"
         className="rounded-lg"
       />
-      <div className="text-sm text-gray-600 font-semibold">{tv.name}</div>
+      <div className="text-sm text-gray-600 font-semibold dark:text-gray-400">{tv.name}</div>
     </div>
     </Link>
   );

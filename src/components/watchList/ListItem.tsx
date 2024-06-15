@@ -32,7 +32,8 @@ function ListItem({ movie, setWatchList }: ListItemProps) {
   };
 
   return (
-    <div className="flex p-3 rounded-2xl w-full ring-1 ring-gray-100 shadow-sm justify-between md:justify-between md:w-96 md:gap-5">
+    <div className="flex p-3 rounded-2xl w-full ring-1 ring-gray-100 dark:ring-gray-800
+     shadow-sm shadow-emerald-500 justify-between md:justify-between md:w-96 md:gap-5">
       <div className="flex gap-5">
         <img
           src={ImageUrl + movie.poster_path}
@@ -40,12 +41,12 @@ function ListItem({ movie, setWatchList }: ListItemProps) {
           className="w-14 h-20 rounded-md"
         />
         <div className="flex flex-col gap-4">
-          <span className="text-lg font-semibold text-gray-600">
+          <span className="text-lg font-semibold text-gray-600 dark:text-gray-400">
             {movie.title}
           </span>
           <div className="flex gap-1">
             <img src={STAR} alt="vote" className="w-5 h-5" />
-            <span className="text-sm text-gray-500 font-bold">
+            <span className="text-sm text-gray-500 dark:text-gray-400 font-bold">
               {movie.vote_average.toString().length > 3
                 ? movie.vote_average.toString().slice(0, 3)
                 : movie.vote_average}

@@ -8,7 +8,7 @@ import TvCarousel from "../carousel/TvCarousel";
 import HomeLoading from "../loading/HomeLoading";
 import HomeError from "../errorPage/HomeError";
 import { useMovie } from "../../hooks/useMovie";
-
+import Theme from "../brand/Theme";
 
 function MovieHome() {
   const [movies, setMovies] = useState<Movie[]>([]);
@@ -26,12 +26,20 @@ function MovieHome() {
     setMoviesError
   );
 
-  useMovie("/discover/tv?page=1&sort_by=vote_count.desc", setSeries, setSeriesLoading, setSeriesError);
+  useMovie(
+    "/discover/tv?page=1&sort_by=vote_count.desc",
+    setSeries,
+    setSeriesLoading,
+    setSeriesError
+  );
 
   return (
     <div className="p-5 mb-20 md:pl-28">
       <div className="flex flex-col">
-        <Brand />
+        <div className="flex justify-between">
+          <Brand />
+          <Theme />
+        </div>
         {moviesError || seriesError ? (
           <HomeError />
         ) : moviesLoading || seriesLoading ? (
@@ -39,8 +47,8 @@ function MovieHome() {
         ) : (
           <>
             <div className="flex flex-col gap-8">
-            <MovieCarousel movies={movies} />
-            <TvCarousel series={series} />
+              <MovieCarousel movies={movies} />
+              <TvCarousel series={series} />
             </div>
           </>
         )}

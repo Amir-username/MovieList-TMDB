@@ -86,7 +86,7 @@ function MovieDetailsContent({ movie, genres }: MovieDetailsContentProps) {
             className="w-36 h-52 ring-1 ring-gray-100 rounded-sm"
           />
         </div>
-        <div className="p-2 text-lg text-gray-800">{currMovie.overview}</div>
+        <div className="p-2 text-lg text-gray-800 dark:text-gray-400">{currMovie.overview}</div>
         <MovieRating movie={currMovie} />
         <AddToList movie={movie} setSnackbar={setSnackbar} />
         <CastCarousel cast={cast} />

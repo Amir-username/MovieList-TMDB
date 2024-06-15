@@ -30,7 +30,7 @@ function TvDetailsContent({ tv, genres }: TvDetailsContentProps) {
   }, []);
 
   return (
-    <div className="flex flex-col p-1 gap-8 mb-48">
+    <div className="flex flex-col p-1 gap-8 mb-48 md:px-32">
       <div className="flex gap-2 justify-between">
         <TvInfo genres={genres} tv={tv} />
         <img
@@ -39,7 +39,7 @@ function TvDetailsContent({ tv, genres }: TvDetailsContentProps) {
           className="w-36 h-52 ring-1 ring-gray-100 rounded-sm"
         />
       </div>
-      <div className="p-2 text-lg text-gray-800">{tv.overview}</div>
+      <div className="p-2 text-lg text-gray-800 dark:text-gray-400">{tv.overview}</div>
       <MovieRating movie={tv} />
       {
         images && <ImageCarousel images={images} />
