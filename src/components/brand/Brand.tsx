@@ -1,10 +1,10 @@
 function Brand() {
   return (
     <div className="flex md:px-8">
-      <div className="dark:text-amber-500 text-amber-600 text-3xl font-semibold">
+      <div className="dark:text-[#F19E39] text-[#F19E39] text-3xl font-semibold">
         TMDB
       </div>
-      <span className="material-symbols-outlined dark:text-amber-500 text-amber-600 text-3xl">
+      <span className="material-symbols-outlined dark:text-[#F19E39] text-[#F19E39] text-3xl">
         masked_transitions
       </span>
     </div>

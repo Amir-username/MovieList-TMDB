@@ -10,14 +10,7 @@ function Theme() {
     }
   });
 
-  useEffect(() => {
-    const theme = localStorage.getItem("theme");
-    if (theme) {
-      document.documentElement.className = theme;
-    } else {
-      document.documentElement.className = isDark ? "dark" : "light";
-    }
-  }, []);
+
 
   useEffect(() => {
     if (isDark) {

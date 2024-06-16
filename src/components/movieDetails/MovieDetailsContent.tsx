@@ -109,5 +109,3 @@ function MovieDetailsContent({ movie, genres }: MovieDetailsContentProps) {
 }
 
 export default MovieDetailsContent;
-
-// #F19E39
