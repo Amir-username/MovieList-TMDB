@@ -1,15 +1,32 @@
 import { useEffect, useState } from "react";
 
 function Theme() {
-  const [isDark, setIsDark] = useState<boolean>(false);
+  const [isDark, setIsDark] = useState<boolean>(() => {
+    const theme = localStorage.getItem("theme");
+    if (theme === "light") {
+      return true;
+    } else {
+      return false;
+    }
+  });
+
+  useEffect(() => {
+    const theme = localStorage.getItem("theme");
+    if (theme) {
+      document.documentElement.className = theme;
+    } else {
+      document.documentElement.className = isDark ? "dark" : "light";
+    }
+  }, []);
+
   useEffect(() => {
     if (isDark) {
       setTimeout('document.documentElement.className = "light"', 500);
+      localStorage.setItem("theme", "light");
     } else {
       setTimeout('document.documentElement.className = "dark"', 500);
+      localStorage.setItem("theme", "dark");
     }
-
-    console.log(document.documentElement.className);
   }, [isDark]);
 
   const onTheme = () => {
