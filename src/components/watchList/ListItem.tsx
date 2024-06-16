@@ -33,7 +33,7 @@ function ListItem({ movie, setWatchList }: ListItemProps) {
   return (
     <div
       className="flex p-3 rounded-2xl w-full ring-1 ring-gray-100 dark:ring-gray-800
-     shadow-sm shadow-emerald-500 justify-between md:justify-between md:w-96 md:gap-5"
+     shadow-sm shadow-amber-500 justify-between md:justify-between md:w-96 md:gap-5"
     >
       <div className="flex gap-5">
         <img
@@ -59,7 +59,7 @@ function ListItem({ movie, setWatchList }: ListItemProps) {
         <span
           onClick={onWatched}
           className={`material-symbols-outlined text-2xl cursor-pointer ${
-            watched ? "text-emerald-500" : "text-gray-400"
+            watched ? "text-amber-500" : "text-gray-400"
           }`}
         >
           {watched ? "check_circle" : "visibility"}

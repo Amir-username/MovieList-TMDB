@@ -12,7 +12,7 @@ function MovieInfo({ movie, genres }: MovieInfoProps) {
     <div className="flex flex-col p-2 gap-4">
       <MovieTitle title={movie.title} />
       <div className="flex gap-2 items-center">
-        <span className="material-symbols-outlined text-emerald-700 dark:text-emerald-500 text-xl">
+        <span className="material-symbols-outlined text-amber-600 dark:text-amber-500 text-xl">
           calendar_today
         </span>
         <div className="font-semibold text-gray-600 dark:text-gray-400 text-lg">
@@ -20,7 +20,7 @@ function MovieInfo({ movie, genres }: MovieInfoProps) {
         </div>
       </div>
       <div className="flex gap-2 items-center">
-        <span className="material-symbols-outlined text-emerald-700 dark:text-emerald-500 text-xl">
+        <span className="material-symbols-outlined text-amber-600 dark:text-amber-500 text-xl">
           theater_comedy
         </span>
         <div className="font-semibold text-gray-600 dark:text-gray-400 text-lg">
@@ -30,7 +30,7 @@ function MovieInfo({ movie, genres }: MovieInfoProps) {
         </div>
       </div>
       <div className="flex gap-2 items-center">
-        <span className="material-symbols-outlined text-emerald-700 dark:to-emerald-500 text-xl">
+        <span className="material-symbols-outlined text-amber-600 dark:to-amber-500 text-xl">
           language
         </span>
         <div className="font-semibold text-gray-600 dark:text-gray-400 text-lg">

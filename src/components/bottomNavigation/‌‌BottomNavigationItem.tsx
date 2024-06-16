@@ -28,7 +28,7 @@ function BottomNavigationItem({
         <span
           className={`material-symbols-outlined text-3xl duration-500 ${
             activeItem === name
-              ? "text-emerald-600 dark:text-emerald-500"
+              ? "text-amber-600 dark:text-amber-500"
               : "text-gray-400"
           }`}
         >
@@ -37,7 +37,7 @@ function BottomNavigationItem({
         <div
           className={`text-base duration-1000 ${
             activeItem === name
-              ? "text-emerald-600 dark:text-emerald-500"
+              ? "text-amber-600 dark:text-amber-500"
               : "text-gray-500 dark:text-gray-400"
           }`}
         >

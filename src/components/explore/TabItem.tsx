@@ -16,8 +16,8 @@ function TabItem({ text, active, setActive, setTabState }: TabItemProps) {
       onClick={onActive}
       className={`p-3 text-lg text-center duration-500 cursor-pointer ${
         active === text
-          ? "border-b border-emerald-500 text-emerald-500"
-          : "text-gray-400 hover:text-emerald-400"
+          ? "border-b border-amber-500 text-amber-500"
+          : "text-gray-400 hover:text-amber-400"
       }`}
     >
       {text}
