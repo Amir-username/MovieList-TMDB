@@ -25,7 +25,6 @@ function MovieHome() {
     setMovies,
     setMoviesLoading,
     setMoviesError
-    // [moviePage]
   );
 
   useMovie(
@@ -33,7 +32,6 @@ function MovieHome() {
     setSeries,
     setSeriesLoading,
     setSeriesError
-    // []
   );
 
   return (

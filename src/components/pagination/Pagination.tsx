@@ -28,7 +28,7 @@ function Pagination({ pageNum, setPageNum }: PaginationProps) {
         text-white ${
           pageNum == 1
             ? "bg-gray-400 dark:bg-gray-500"
-            : "bg-amber-600 dark:bg-amber-500"
+            : "bg-amber-600 dark:bg-amber-500 cursor-pointer"
         }`}
       >
         <span className="material-symbols-outlined text-3xl">
@@ -40,7 +40,7 @@ function Pagination({ pageNum, setPageNum }: PaginationProps) {
         className={`pl-3 p-2 pt-2.5 w-12 h-12 text-center rounded-lg text-white ${
           pageNum == 1
             ? "bg-gray-400 dark:bg-gray-500"
-            : "bg-amber-600 dark:bg-amber-500"
+            : "bg-amber-600 dark:bg-amber-500 cursor-pointer"
         }`}
       >
         <span className="material-symbols-outlined text-xl font-bold">
@@ -58,7 +58,7 @@ function Pagination({ pageNum, setPageNum }: PaginationProps) {
         className={`pr-2 p-2 pt-2.5 w-12 text-center h-12 rounded-lg text-white ${
           pageNum == 500
             ? "bg-gray-400 dark:bg-gray-500"
-            : "bg-amber-600 dark:bg-amber-500"
+            : "bg-amber-600 dark:bg-amber-500 cursor-pointer"
         }`}
       >
         <span className="material-symbols-outlined text-xl font-bold">
@@ -71,7 +71,7 @@ function Pagination({ pageNum, setPageNum }: PaginationProps) {
         text-white ${
           pageNum == 500
             ? "bg-gray-400 dark:bg-gray-500"
-            : "bg-amber-600 dark:bg-amber-500"
+            : "bg-amber-600 dark:bg-amber-500 cursor-pointer"
         }`}
       >
         <span className="material-symbols-outlined text-3xl">
