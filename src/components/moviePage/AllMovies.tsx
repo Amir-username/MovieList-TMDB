@@ -5,6 +5,8 @@ import AllMoviesContent from "./AllMoviesContent";
 import { Movie } from "../../models/Movie";
 import { BaseURL, options } from "../../requestConfig";
 import axios from "axios";
+import HomeError from "../errorPage/HomeError";
+import AllMoviesLoading from "../loading/AllMoviesLoading";
 
 function AllMovies() {
   const [movies, setMovies] = useState<Movie[]>([]);
@@ -37,11 +39,13 @@ function AllMovies() {
   return (
     <div className="flex flex-col m-5 gap-10 mb-28 md:px-20">
       <MoviesBrand name="movies" />
-      <AllMoviesContent
-        movies={movies}
-        movieError={moviesError}
-        movieLoading={moviesLoading}
-      />
+      {moviesError ? (
+        <HomeError />
+      ) : moviesLoading ? (
+        <AllMoviesLoading />
+      ) : (
+        <AllMoviesContent movies={movies} />
+      )}
       <Pagination pageNum={moviePage} setPageNum={setMoviePage} />
     </div>
   );

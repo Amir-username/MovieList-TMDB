@@ -3,8 +3,6 @@ import AllMovieItem from "./AllMovieItem";
 
 type AllMoviesContentProps = {
   movies: Movie[];
-  movieLoading: boolean;
-  movieError: boolean
 };
 
 function AllMoviesContent({ movies }: AllMoviesContentProps) {
