@@ -6,7 +6,8 @@ export function useMovie(
   query: string,
   setState: React.Dispatch<React.SetStateAction<any>>,
   setLoading: React.Dispatch<React.SetStateAction<boolean>>,
-  setError: React.Dispatch<React.SetStateAction<boolean>>
+  setError: React.Dispatch<React.SetStateAction<boolean>>,
+  // dep: any[]
 ) {
   useEffect(() => {
     setLoading(true);

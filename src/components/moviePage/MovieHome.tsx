@@ -10,6 +10,7 @@ import HomeError from "../errorPage/HomeError";
 import { useMovie } from "../../hooks/useMovie";
 import Theme from "../brand/Theme";
 
+
 function MovieHome() {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [moviesLoading, setMoviesLoading] = useState<boolean>(false);
@@ -20,10 +21,11 @@ function MovieHome() {
   const [seriesError, setSeriesError] = useState<boolean>(false);
 
   useMovie(
-    "/discover/movie?page=1",
+    `/discover/movie?page=1`,
     setMovies,
     setMoviesLoading,
     setMoviesError
+    // [moviePage]
   );
 
   useMovie(
@@ -31,6 +33,7 @@ function MovieHome() {
     setSeries,
     setSeriesLoading,
     setSeriesError
+    // []
   );
 
   return (
@@ -47,7 +50,9 @@ function MovieHome() {
         ) : (
           <>
             <div className="flex flex-col gap-8">
-              <MovieCarousel movies={movies} />
+              <MovieCarousel
+                movies={movies}
+              />
               <TvCarousel series={series} />
             </div>
           </>

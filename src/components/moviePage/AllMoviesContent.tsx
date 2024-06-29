@@ -3,12 +3,14 @@ import AllMovieItem from "./AllMovieItem";
 
 type AllMoviesContentProps = {
   movies: Movie[];
+  movieLoading: boolean;
+  movieError: boolean
 };
 
 function AllMoviesContent({ movies }: AllMoviesContentProps) {
   return (
     <div className="flex flex-wrap justify-center gap-5 content-between">
-      {movies.map((movie) => {
+      {movies?.map((movie) => {
         return <AllMovieItem movie={movie} key={movie.id} />;
       })}
     </div>

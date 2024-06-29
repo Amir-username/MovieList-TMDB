@@ -10,7 +10,9 @@ function MovieCarousel({ movies }: MovieCarouselProps) {
   return (
     <div className="flex flex-col mt-8 gap-8 md:gap-5">
       <div className="flex justify-center items-center ">
-        <Link to={"movies"} state={movies}>
+        <Link
+          to={"movies"}
+        >
           <span className="text-2xl font-semibold text-gray-400">movies</span>
         </Link>
       </div>
