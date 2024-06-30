@@ -11,7 +11,9 @@ function TvCarousel({ series }: TvCarouselProps) {
     <div className="flex flex-col mt-8 gap-8">
       <div className="flex items-center justify-center ">
         <Link to={"series/"} state={series}>
-          <span className="text-2xl font-semibold text-gray-400">series</span>
+          <span className="text-3xl md:text-4xl font-title-font text-primary-light dark:text-primary-dark">
+            series
+          </span>
         </Link>
       </div>
       <div

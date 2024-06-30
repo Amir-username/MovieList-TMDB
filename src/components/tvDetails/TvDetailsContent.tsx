@@ -39,7 +39,7 @@ function TvDetailsContent({ tv, genres }: TvDetailsContentProps) {
           className="w-36 h-52 ring-1 ring-gray-100 rounded-sm"
         />
       </div>
-      <div className="p-2 text-lg text-gray-800 dark:text-gray-400">{tv.overview}</div>
+      <div className="p-2 text-xl text-gray-800 dark:text-gray-400 font-main-font">{tv.overview}</div>
       <MovieRating movie={tv} />
       {
         images && <ImageCarousel images={images} />

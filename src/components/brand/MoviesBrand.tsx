@@ -15,7 +15,7 @@ function MoviesBrand({ name }: MoviesBrandProps) {
       >
         arrow_back
       </span>
-      <span className="text-2xl font-semibold text-gray-500 dark:text-gray-400">
+      <span className="text-2xl font-semibold text-gray-500 dark:text-gray-400 font-title-font">
         {name}
       </span>
     </div>

@@ -35,7 +35,7 @@ function BottomNavigationItem({
           {icon}
         </span>
         <div
-          className={`text-base duration-1000 ${
+          className={`text-base duration-1000 font-main-font ${
             activeItem === name
               ? "dark:text-primary-dark text-primary-light"
               : "text-gray-500 dark:text-gray-400"

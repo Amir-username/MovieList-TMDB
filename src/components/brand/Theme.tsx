@@ -30,8 +30,7 @@ function Theme() {
     <span
       onClick={onTheme}
       className="material-symbols-outlined text-3xl md:text-4xl
-       text-primary-light dark:text-primary-dark dark:hover:text-primary-light
-        hover:text-primary-dark cursor-pointer"
+       text-primary-light dark:text-primary-dark cursor-pointer"
     >
       {isDark ? "dark_mode" : "light_mode"}
     </span>

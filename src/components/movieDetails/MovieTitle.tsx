@@ -5,7 +5,7 @@ type MovieTitleProps = {
 function MovieTitle({ title }: MovieTitleProps) {
   return (
     <div>
-      <div className="text-4xl font-semibold text-gray-800 dark:text-gray-300 mb-6">{title}</div>
+      <div className="text-4xl font-title-font text-gray-800 dark:text-gray-300 mb-6">{title}</div>
     </div>
   );
 }

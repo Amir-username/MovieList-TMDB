@@ -16,7 +16,7 @@ function GenreItem({ genre, color, title }: GenreItemProps) {
       <div
         className={`flex w-48 h-28 rounded-lg p-5 ${color} items-center justify-center`}
       >
-        <span className="text-lg font-semibold text-white">{genre.name}</span>
+        <span className="text-2xl text-white font-main-font">{genre.name}</span>
       </div>
     </Link>
   );

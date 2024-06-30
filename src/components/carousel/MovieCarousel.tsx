@@ -11,7 +11,7 @@ function MovieCarousel({ movies }: MovieCarouselProps) {
     <div className="flex flex-col mt-8 gap-8 md:gap-5">
       <div className="flex justify-center items-center ">
         <Link to={"movies"}>
-          <span className="text-2xl font-semibold text-gray-400">movies</span>
+          <span className="md:text-4xl text-3xl text-primary-light dark:text-primary-dark font-title-font">movies</span>
         </Link>
       </div>
       <div

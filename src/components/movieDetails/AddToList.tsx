@@ -40,8 +40,8 @@ function AddToList({ movie, setSnackbar }: AddToListProps) {
         className="flex p-4 rounded-full bg-primary-light dark:bg-primary-dark gap-1 w-fit
          hover:bg-primary-dark dark:hover:bg-primary-light cursor-pointer"
       >
-        <div className="text-white font-semibold text-lg">Add To List</div>
-        <span className="material-symbols-outlined text-white text-xl font-bold">
+        <div className="text-white font-semibold text-lg font-main-font">Add To List</div>
+        <span className="material-symbols-outlined text-white text-xl">
           add
         </span>
       </div>

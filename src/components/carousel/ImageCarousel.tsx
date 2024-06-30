@@ -8,7 +8,7 @@ type ImageCarouselProps = {
 function ImageCarousel({ images }: ImageCarouselProps) {
   return (
     <div className="flex flex-col gap-8 p-2">
-      <div className="text-2xl font-semibold text-gray-600 dark:text-gray-400">Images</div>
+      <div className="text-3xl text-gray-600 dark:text-gray-400 font-title-font">Images</div>
       <div id="no-scrollbar" className="flex overflow-scroll gap-2">
         {images.map((image) => {
           return (

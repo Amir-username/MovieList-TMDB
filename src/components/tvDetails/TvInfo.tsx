@@ -15,7 +15,7 @@ function TvInfo({ tv, genres }: TvInfoProps) {
         <span className="material-symbols-outlined text-primary-light dark:text-primary-dark text-xl">
           calendar_today
         </span>
-        <div className="font-semibold text-gray-600 dark:text-gray-400 text-lg">
+        <div className="font-main-font text-gray-600 dark:text-gray-400 text-lg">
           {tv.first_air_date}
         </div>
       </div>
@@ -23,7 +23,7 @@ function TvInfo({ tv, genres }: TvInfoProps) {
         <span className="material-symbols-outlined text-primary-light dark:text-primary-dark text-xl">
           theater_comedy
         </span>
-        <div className="font-semibold text-gray-600 dark:text-gray-400 text-lg">
+        <div className="font-main-font text-gray-600 dark:text-gray-400 text-lg">
           {genres.map((genre) => {
             return <span key={genre.id}>{genre.name} </span>;
           })}
@@ -33,7 +33,7 @@ function TvInfo({ tv, genres }: TvInfoProps) {
         <span className="material-symbols-outlined text-primary-light dark:text-primary-dark text-xl">
           language
         </span>
-        <div className="font-semibold text-gray-600 dark:text-gray-400 text-lg">
+        <div className="font-main-font text-gray-600 dark:text-gray-400 text-lg">
           {tv.original_language.toUpperCase()}
         </div>
       </div>

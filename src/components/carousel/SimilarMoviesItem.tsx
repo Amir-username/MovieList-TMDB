@@ -27,7 +27,7 @@ function SimilarMoviesItem({
         alt="movie poster"
         className="w-36 h-52 rounded-lg"
       />
-      <div className="text-base text-gray-600 dark:text-gray-400 font-semibold">{movie.title}</div>
+      <div className="text-base text-gray-600 dark:text-gray-400 font-main-font">{movie.title}</div>
     </div>
   );
 }

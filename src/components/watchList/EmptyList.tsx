@@ -4,7 +4,7 @@ function EmptyList() {
       <span className="material-symbols-outlined text-8xl text-primary-light dark:text-primary-dark">
         list_alt
       </span>
-      <span className="text-2xl text-primary-light dark:text-primary-dark font-semibold">
+      <span className="text-2xl text-primary-light dark:text-primary-dark font-main-font">
         your watchlist is empty
       </span>
     </div>

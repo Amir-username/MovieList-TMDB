@@ -86,7 +86,7 @@ function MovieDetailsContent({ movie, genres }: MovieDetailsContentProps) {
             className="w-36 h-52 ring-1 ring-gray-100 rounded-sm"
           />
         </div>
-        <div className="p-2 text-lg text-gray-800 dark:text-gray-400">{currMovie.overview}</div>
+        <div className="p-2 text-xl text-gray-800 dark:text-gray-400 font-main-font">{currMovie.overview}</div>
         <MovieRating movie={currMovie} />
         <AddToList movie={movie} setSnackbar={setSnackbar} />
         <CastCarousel cast={cast} />
@@ -99,7 +99,7 @@ function MovieDetailsContent({ movie, genres }: MovieDetailsContentProps) {
       </div>
       {snackbar && (
         <div className="flex bottom-64 left-24 sticky items-center justify-center duration-1000 ">
-          <div className="bg-primary-light dark:bg-primary-dark w-fit p-4 rounded-full text-white text-xl opacity-95">
+          <div className="font-main-font bg-primary-light dark:bg-primary-dark w-fit p-4 rounded-full text-white text-xl opacity-95">
             {movie.title} has been added to your watchlist
           </div>
         </div>

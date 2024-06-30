@@ -14,7 +14,7 @@ function TabItem({ text, active, setActive, setTabState }: TabItemProps) {
   return (
     <div
       onClick={onActive}
-      className={`p-3 text-lg text-center duration-500 cursor-pointer ${
+      className={`p-3 text-xl text-center duration-500 cursor-pointer font-main-font ${
         active === text
           ? "border-b border-primary-light text-primary-light dark:text-primary-dark dark:border-primary-dark"
           : "text-gray-400 hover:text-amber-400"

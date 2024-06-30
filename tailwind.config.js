@@ -10,11 +10,13 @@ export default {
           dark:"#F19E39",
           light: "#D94F04",
         },
-        // primary: "#F19E39",
-        // 'primaryl': "##D94F04",
         light: "#F2F2F2",
         dark: "#121726",
       },
+      fontFamily: {
+        'title-font': 'Staatliches',
+        'main-font': 'Roboto',
+      }
     },
   },
   plugins: [],

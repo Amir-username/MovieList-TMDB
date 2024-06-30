@@ -5,7 +5,7 @@ function HomeError() {
         <span className="material-symbols-outlined text-red-600 text-7xl text-center">
           error
         </span>
-        <div className="text-2xl text-red-600 font-semibold">error with loading</div>
+        <div className="text-2xl text-red-600 font-semibold font-main-font">error with loading</div>
       </div>
     </div>
   );

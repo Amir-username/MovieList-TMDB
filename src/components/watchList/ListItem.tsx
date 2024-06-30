@@ -42,12 +42,12 @@ function ListItem({ movie, setWatchList }: ListItemProps) {
           className="w-14 h-20 rounded-md"
         />
         <div className="flex flex-col gap-4">
-          <span className="text-lg font-semibold text-gray-600 dark:text-gray-400">
+          <span className="text-xl font-title-font text-gray-600 dark:text-gray-400">
             {movie.title}
           </span>
           <div className="flex gap-1">
             <img src={STAR} alt="vote" className="w-5 h-5" />
-            <span className="text-sm text-gray-500 dark:text-gray-400 font-bold">
+            <span className="text-sm text-gray-500 dark:text-gray-400 font-bold font-main-font">
               {movie.vote_average.toString().length > 3
                 ? movie.vote_average.toString().slice(0, 3)
                 : movie.vote_average}
