@@ -24,11 +24,11 @@ function Pagination({ pageNum, setPageNum }: PaginationProps) {
     <div className="flex gap-2 justify-center items-center">
       <div
         onClick={onFirst}
-        className={`pl-2 p-2 pt-1.5 w-12 h-12 text-center rounded-lg
+        className={`rounded-full pl-2 p-2 pt-1.5 w-12 h-12 text-center
         text-white ${
           pageNum == 1
             ? "bg-gray-400 dark:bg-gray-500"
-            : "bg-amber-600 dark:bg-amber-500 cursor-pointer"
+            : "bg-primary-light dark:bg-primary-dark cursor-pointer"
         }`}
       >
         <span className="material-symbols-outlined text-3xl">
@@ -37,10 +37,10 @@ function Pagination({ pageNum, setPageNum }: PaginationProps) {
       </div>
       <div
         onClick={onBack}
-        className={`pl-3 p-2 pt-2.5 w-12 h-12 text-center rounded-lg text-white ${
+        className={`pl-3 p-2 pt-2.5 w-12 h-12 text-center rounded-full text-white ${
           pageNum == 1
             ? "bg-gray-400 dark:bg-gray-500"
-            : "bg-amber-600 dark:bg-amber-500 cursor-pointer"
+            : "bg-primary-light dark:bg-primary-dark cursor-pointer"
         }`}
       >
         <span className="material-symbols-outlined text-xl font-bold">
@@ -48,17 +48,17 @@ function Pagination({ pageNum, setPageNum }: PaginationProps) {
         </span>
       </div>
       <div
-        className="pt-1.5 w-12 h-12 text-center rounded-lg bg-amber-600 dark:bg-amber-500
+        className="pt-1.5 w-12 h-12 text-center rounded-full bg-primary-light dark:bg-primary-dark
        text-white "
       >
         <span className="text-2xl font-semibold">{pageNum}</span>
       </div>
       <div
         onClick={onNext}
-        className={`pr-2 p-2 pt-2.5 w-12 text-center h-12 rounded-lg text-white ${
+        className={`pr-2 p-2 pt-2.5 w-12 text-center h-12 rounded-full text-white ${
           pageNum == 500
             ? "bg-gray-400 dark:bg-gray-500"
-            : "bg-amber-600 dark:bg-amber-500 cursor-pointer"
+            : "bg-primary-light dark:bg-primary-dark cursor-pointer"
         }`}
       >
         <span className="material-symbols-outlined text-xl font-bold">
@@ -67,11 +67,11 @@ function Pagination({ pageNum, setPageNum }: PaginationProps) {
       </div>
       <div
         onClick={onLast}
-        className={`pl-2 p-2 pt-1.5 w-12 h-12 text-center rounded-lg
+        className={`pl-2 p-2 pt-1.5 w-12 h-12 text-center rounded-full
         text-white ${
           pageNum == 500
             ? "bg-gray-400 dark:bg-gray-500"
-            : "bg-amber-600 dark:bg-amber-500 cursor-pointer"
+            : "bg-primary-light dark:bg-primary-dark cursor-pointer"
         }`}
       >
         <span className="material-symbols-outlined text-3xl">

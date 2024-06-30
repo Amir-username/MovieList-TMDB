@@ -17,7 +17,7 @@ function CreditInfo({ credit }: CreditInfoProps) {
         {credit.name}
       </div>
       <div className="flex gap-2">
-        <span className="material-symbols-outlined text-amber-700 dark:text-amber-500 text-xl">
+        <span className="material-symbols-outlined text-primary-light dark:text-primary-dark text-xl">
           theater_comedy
         </span>
         <div className="text-lg text-gray-500 dark:text-gray-400">
@@ -25,7 +25,7 @@ function CreditInfo({ credit }: CreditInfoProps) {
         </div>
       </div>
       <div className="flex gap-2">
-        <span className="material-symbols-outlined text-amber-700 dark:text-amber-500 text-xl">
+        <span className="material-symbols-outlined text-primary-light dark:text-primary-dark text-xl">
           cake
         </span>
         <div className="text-lg text-gray-500 dark:text-gray-400">

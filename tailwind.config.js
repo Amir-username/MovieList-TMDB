@@ -1,13 +1,22 @@
+import { colors } from "tailwindcss/colors";
+
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: {
+          dark:"#F19E39",
+          light: "#D94F04",
+        },
+        // primary: "#F19E39",
+        // 'primaryl': "##D94F04",
+        light: "#F2F2F2",
+        dark: "#121726",
+      },
+    },
   },
   plugins: [],
-  darkMode: 'class'
-}
-
+  darkMode: "class",
+};

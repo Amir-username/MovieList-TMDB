@@ -11,7 +11,7 @@ function MoviesBrand({ name }: MoviesBrandProps) {
     <div className="flex gap-8 items-center">
       <span
         onClick={() => navigate(-1)}
-        className="material-symbols-outlined text-amber-700 dark:text-amber-500 text-3xl cursor-pointer"
+        className="material-symbols-outlined text-primary-light dark:text-primary-dark text-3xl cursor-pointer"
       >
         arrow_back
       </span>

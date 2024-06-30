@@ -37,8 +37,8 @@ function AddToList({ movie, setSnackbar }: AddToListProps) {
     <div className="flex items-center justify-center">
       <div
         onClick={onAdd}
-        className="flex p-4 rounded-full bg-amber-600 gap-1 w-fit
-         hover:bg-amber-500 dark:hover:bg-amber-500 cursor-pointer"
+        className="flex p-4 rounded-full bg-primary-light dark:bg-primary-dark gap-1 w-fit
+         hover:bg-primary-dark dark:hover:bg-primary-light cursor-pointer"
       >
         <div className="text-white font-semibold text-lg">Add To List</div>
         <span className="material-symbols-outlined text-white text-xl font-bold">

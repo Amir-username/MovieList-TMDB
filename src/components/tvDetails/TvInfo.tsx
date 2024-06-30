@@ -12,7 +12,7 @@ function TvInfo({ tv, genres }: TvInfoProps) {
     <div className="flex flex-col p-2 gap-4">
       <MovieTitle title={tv.name} />
       <div className="flex gap-2 items-center">
-        <span className="material-symbols-outlined text-emerald-700 dark:text-emerald-500 text-xl">
+        <span className="material-symbols-outlined text-primary-light dark:text-primary-dark text-xl">
           calendar_today
         </span>
         <div className="font-semibold text-gray-600 dark:text-gray-400 text-lg">
@@ -20,7 +20,7 @@ function TvInfo({ tv, genres }: TvInfoProps) {
         </div>
       </div>
       <div className="flex gap-2 items-center">
-        <span className="material-symbols-outlined text-emerald-700 dark:text-emerald-500 text-xl">
+        <span className="material-symbols-outlined text-primary-light dark:text-primary-dark text-xl">
           theater_comedy
         </span>
         <div className="font-semibold text-gray-600 dark:text-gray-400 text-lg">
@@ -30,7 +30,7 @@ function TvInfo({ tv, genres }: TvInfoProps) {
         </div>
       </div>
       <div className="flex gap-2 items-center">
-        <span className="material-symbols-outlined text-emerald-700 dark:text-emerald-500 text-xl">
+        <span className="material-symbols-outlined text-primary-light dark:text-primary-dark text-xl">
           language
         </span>
         <div className="font-semibold text-gray-600 dark:text-gray-400 text-lg">

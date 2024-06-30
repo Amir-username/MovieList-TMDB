@@ -99,7 +99,7 @@ function MovieDetailsContent({ movie, genres }: MovieDetailsContentProps) {
       </div>
       {snackbar && (
         <div className="flex bottom-64 left-24 sticky items-center justify-center duration-1000 ">
-          <div className="bg-amber-500 w-fit p-4 rounded-full text-white text-xl opacity-95">
+          <div className="bg-primary-light dark:bg-primary-dark w-fit p-4 rounded-full text-white text-xl opacity-95">
             {movie.title} has been added to your watchlist
           </div>
         </div>

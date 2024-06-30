@@ -10,7 +10,7 @@ import CreditMovieCarousel from "./CreditMovieCarousel";
 
 function CreditDetails() {
   const [credit, setCredit] = useState<Credit>();
-  const [creditMovies, setCreditMovies] = useState<Movie[]>([])
+  const [creditMovies, setCreditMovies] = useState<Movie[]>([]);
 
   const location = useLocation();
   const cast: Cast = location.state;
@@ -25,10 +25,12 @@ function CreditDetails() {
     fetchCredit();
   }, []);
 
-
   useEffect(() => {
     const fetchCredit = async () => {
-      const res = await axios.get(BaseURL + `/person/${cast.id}/movie_credits`, options);
+      const res = await axios.get(
+        BaseURL + `/person/${cast.id}/movie_credits`,
+        options
+      );
       const data = await res.data;
       setCreditMovies(data.cast);
     };
@@ -43,7 +45,7 @@ function CreditDetails() {
       <div className="flex flex-col p-3 gap-5 mb-20 md:px-32">
         <span
           onClick={() => navigate(-1)}
-          className="material-symbols-outlined text-amber-700 dark:text-amber-500 text-3xl"
+          className="material-symbols-outlined text-primary-light dark:text-primary-dark text-3xl cursor-pointer"
         >
           arrow_back
         </span>
