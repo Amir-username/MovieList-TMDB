@@ -22,7 +22,7 @@ const Colors = [
 function Genres({ genres, title }: GenresProps) {
   return (
     <div className="flex flex-col gap-5">
-      <div className="flex flex-wrap gap-1 md:gap-2 mb-20 md:items-center md:justify-center">
+      <div className="flex flex-wrap gap-2 md:gap-2 mb-20 md:items-center md:justify-center justify-center">
         {genres.map((genre) => {
           return (
             <GenreItem
