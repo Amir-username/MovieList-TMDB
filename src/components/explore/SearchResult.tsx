@@ -13,7 +13,7 @@ type SearchResultProps = {
 function SearchResult({ movieResults, tvResults }: SearchResultProps) {
   const [tabState, setTabState] = useState<string>("movies");
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-8 md:px-52">
       <Tabs setTabState={setTabState} />
       {tabState === "tv show" ? (
         <AllSeriesContent series={tvResults} />

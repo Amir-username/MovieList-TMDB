@@ -27,7 +27,7 @@ function GenrePage() {
   }, [moviePage]);
 
   return (
-    <div className="flex flex-col m-5 gap-8 mb-32">
+    <div className="flex flex-col m-5 gap-8 mb-32 md:px-52">
       <MoviesBrand name={genre.name} />
       <AllMoviesContent movies={movies} />
       <Pagination pageNum={moviePage} setPageNum={setMoviePage} />

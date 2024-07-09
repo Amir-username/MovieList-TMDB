@@ -35,7 +35,7 @@ function MovieHome() {
   );
 
   return (
-    <div className="p-5 mb-20 md:pl-28">
+    <div className="p-5 mb-20">
       <div className="flex flex-col">
         <div className="flex justify-between">
           <Brand />
@@ -47,7 +47,7 @@ function MovieHome() {
           <HomeLoading />
         ) : (
           <>
-            <div className="flex flex-col gap-8">
+            <div className="flex flex-col gap-8 md:px-52">
               <MovieCarousel
                 movies={movies}
               />
