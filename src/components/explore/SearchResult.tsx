@@ -4,21 +4,26 @@ import { Tv } from "../../models/Tv";
 import AllMoviesContent from "../moviePage/AllMoviesContent";
 import Tabs from "./Tabs";
 import AllSeriesContent from "../moviePage/AllSeriesContent";
+import { Credit } from "../../models/Credit";
+import AllCredits from "../credits/AllCredits";
 
 type SearchResultProps = {
-  movieResults: Movie[];
-  tvResults: Tv[];
+  movieResult: Movie[];
+  tvResult: Tv[];
+  personResult: Credit[];
 };
 
-function SearchResult({ movieResults, tvResults }: SearchResultProps) {
+function SearchResult({ movieResult, tvResult, personResult }: SearchResultProps) {
   const [tabState, setTabState] = useState<string>("movies");
   return (
     <div className="flex flex-col gap-8 md:px-52">
       <Tabs setTabState={setTabState} />
       {tabState === "tv show" ? (
-        <AllSeriesContent series={tvResults} />
+        <AllSeriesContent series={tvResult} />
+      ) : tabState == 'person' ? (
+        <AllCredits persons={personResult} />
       ) : (
-        <AllMoviesContent movies={movieResults} />
+        <AllMoviesContent movies={movieResult} />
       )}
     </div>
   );

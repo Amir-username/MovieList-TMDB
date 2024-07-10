@@ -22,6 +22,12 @@ function Tabs({ setTabState }: TabsProps) {
         setActive={setActive}
         setTabState={setTabState}
       />
+      <TabItem
+        text="person"
+        active={atcive}
+        setActive={setActive}
+        setTabState={setTabState}
+      />
     </div>
   );
 }

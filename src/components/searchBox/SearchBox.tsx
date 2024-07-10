@@ -3,13 +3,15 @@ import { useEffect, useState } from "react";
 import { BaseURL } from "../../requestConfig";
 import { Movie } from "../../models/Movie";
 import { Tv } from "../../models/Tv";
+import { Credit } from "../../models/Credit";
 
 type SearchBoxProps = {
-  setMovieResults: React.Dispatch<React.SetStateAction<Movie[]>>;
-  setTvResults: React.Dispatch<React.SetStateAction<Tv[]>>;
+  setMovieResult: React.Dispatch<React.SetStateAction<Movie[]>>;
+  setTvResult: React.Dispatch<React.SetStateAction<Tv[]>>;
+  setPersonResult: React.Dispatch<React.SetStateAction<Credit[]>>;
 };
 
-function SearchBox({ setMovieResults, setTvResults }: SearchBoxProps) {
+function SearchBox({ setMovieResult, setTvResult, setPersonResult }: SearchBoxProps) {
   const [search, setSearch] = useState<string>("");
 
   useEffect(() => {
@@ -30,7 +32,7 @@ function SearchBox({ setMovieResults, setTvResults }: SearchBoxProps) {
         );
 
         const data = await res.data;
-        setMovieResults(data.results);
+        setMovieResult(data.results);
       } catch (error: any) {
         if (error.name !== "CanceledError") {
           console.log("error:", error);
@@ -63,7 +65,7 @@ function SearchBox({ setMovieResults, setTvResults }: SearchBoxProps) {
         );
 
         const data = await res.data;
-        setTvResults(data.results);
+        setTvResult(data.results);
       } catch (error: any) {
         if (error.name !== "CanceledError") {
           console.log("error:", error);
@@ -77,6 +79,40 @@ function SearchBox({ setMovieResults, setTvResults }: SearchBoxProps) {
       abortController.abort();
     };
   }, [search]);
+
+  useEffect(() => {
+    const abortController = new AbortController();
+
+    const fetchMovies = async () => {
+      try {
+        const res = await axios.get(
+          BaseURL + `/search/person?query=${search}&page=1&include_adult=false`,
+          {
+            headers: {
+              accept: "application/json",
+              Authorization:
+                "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzNzBlMDc5MDVlMmY0OTZhYTc1ODllZDdiYmUwOTI5NCIsInN1YiI6IjY2Mzc5YTJiMGMxMjU1MDEyNjdkNzE0NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ADu5IS26w5oary4tusBB-YeP5_QFkl-PE2zjiq6TtjY",
+            },
+            signal: abortController.signal,
+          }
+        );
+
+        const data = await res.data;
+        setPersonResult(data.results);
+      } catch (error: any) {
+        if (error.name !== "CanceledError") {
+          console.log("error:", error);
+        }
+      }
+    };
+
+    fetchMovies();
+
+    return () => {
+      abortController.abort();
+    };
+  }, [search]);
+
 
   const onSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
