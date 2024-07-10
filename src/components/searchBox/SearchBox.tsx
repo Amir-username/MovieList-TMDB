@@ -1,9 +1,8 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { BaseURL } from "../../requestConfig";
 import { Movie } from "../../models/Movie";
 import { Tv } from "../../models/Tv";
 import { Credit } from "../../models/Credit";
+import { useSearch } from "../../hooks/useSearch";
+import { useState } from "react";
 
 type SearchBoxProps = {
   setMovieResult: React.Dispatch<React.SetStateAction<Movie[]>>;
@@ -14,105 +13,9 @@ type SearchBoxProps = {
 function SearchBox({ setMovieResult, setTvResult, setPersonResult }: SearchBoxProps) {
   const [search, setSearch] = useState<string>("");
 
-  useEffect(() => {
-    const abortController = new AbortController();
-
-    const fetchMovies = async () => {
-      try {
-        const res = await axios.get(
-          BaseURL + `/search/movie?query=${search}&page=1&include_adult=false`,
-          {
-            headers: {
-              accept: "application/json",
-              Authorization:
-                "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzNzBlMDc5MDVlMmY0OTZhYTc1ODllZDdiYmUwOTI5NCIsInN1YiI6IjY2Mzc5YTJiMGMxMjU1MDEyNjdkNzE0NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ADu5IS26w5oary4tusBB-YeP5_QFkl-PE2zjiq6TtjY",
-            },
-            signal: abortController.signal,
-          }
-        );
-
-        const data = await res.data;
-        setMovieResult(data.results);
-      } catch (error: any) {
-        if (error.name !== "CanceledError") {
-          console.log("error:", error);
-        }
-      }
-    };
-
-    fetchMovies();
-
-    return () => {
-      abortController.abort();
-    };
-  }, [search]);
-
-  useEffect(() => {
-    const abortController = new AbortController();
-
-    const fetchMovies = async () => {
-      try {
-        const res = await axios.get(
-          BaseURL + `/search/tv?query=${search}&page=1&include_adult=false`,
-          {
-            headers: {
-              accept: "application/json",
-              Authorization:
-                "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzNzBlMDc5MDVlMmY0OTZhYTc1ODllZDdiYmUwOTI5NCIsInN1YiI6IjY2Mzc5YTJiMGMxMjU1MDEyNjdkNzE0NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ADu5IS26w5oary4tusBB-YeP5_QFkl-PE2zjiq6TtjY",
-            },
-            signal: abortController.signal,
-          }
-        );
-
-        const data = await res.data;
-        setTvResult(data.results);
-      } catch (error: any) {
-        if (error.name !== "CanceledError") {
-          console.log("error:", error);
-        }
-      }
-    };
-
-    fetchMovies();
-
-    return () => {
-      abortController.abort();
-    };
-  }, [search]);
-
-  useEffect(() => {
-    const abortController = new AbortController();
-
-    const fetchMovies = async () => {
-      try {
-        const res = await axios.get(
-          BaseURL + `/search/person?query=${search}&page=1&include_adult=false`,
-          {
-            headers: {
-              accept: "application/json",
-              Authorization:
-                "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzNzBlMDc5MDVlMmY0OTZhYTc1ODllZDdiYmUwOTI5NCIsInN1YiI6IjY2Mzc5YTJiMGMxMjU1MDEyNjdkNzE0NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ADu5IS26w5oary4tusBB-YeP5_QFkl-PE2zjiq6TtjY",
-            },
-            signal: abortController.signal,
-          }
-        );
-
-        const data = await res.data;
-        setPersonResult(data.results);
-      } catch (error: any) {
-        if (error.name !== "CanceledError") {
-          console.log("error:", error);
-        }
-      }
-    };
-
-    fetchMovies();
-
-    return () => {
-      abortController.abort();
-    };
-  }, [search]);
-
+  useSearch(search, 'movie', setMovieResult)
+  useSearch(search, 'tv', setTvResult)
+  useSearch(search, 'person', setPersonResult)
 
   const onSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
