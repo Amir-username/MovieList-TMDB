@@ -75,6 +75,11 @@ function MovieDetailsContent({ movie, genres }: MovieDetailsContentProps) {
     }
   }, [scrollToTop]);
 
+  useEffect(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+      setScrollToTop(false);
+  }, []);
+
   return (
     <>
       <MovieBackDrop image={ImageUrl + currMovie.backdrop_path} />

@@ -28,7 +28,7 @@ function TvDetailsContent({ tv, genres }: TvDetailsContentProps) {
   }, []);
 
   return (
-    <div className="flex flex-col p-1 gap-8 mb-48 md:px-32">
+    <div className="flex flex-col p-1 gap-8 mb-48 md:px-64">
       <div className="flex gap-2 justify-between">
         <TvInfo genres={genres} tv={tv} />
         {tv.poster_path ? (
