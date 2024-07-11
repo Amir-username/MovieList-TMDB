@@ -11,7 +11,7 @@ function CastCarousel({ cast }: CastCarouselProps) {
       <div className="text-3xl text-gray-600 dark:text-gray-400 font-title-font">
         Cast
       </div>
-      <div id="no-scrollbar" className="flex overflow-scroll gap-2">
+      <div id="no-scrollbar" className="flex md:flex-wrap overflow-scroll md:gap-8 gap-2">
         {cast.map((castItem) => {
           if (castItem.profile_path) {
             return <CastCarouselItem castItem={castItem} key={castItem.id + Math.random()} />;

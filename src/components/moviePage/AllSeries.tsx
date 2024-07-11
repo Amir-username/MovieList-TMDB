@@ -37,7 +37,7 @@ function AllSeries() {
   }, [tvPage]);
 
   return (
-    <div className="flex flex-col m-5 md:px-20 gap-10 mb-28">
+    <div className="flex flex-col m-5 md:px-64 gap-10 mb-28">
       <MoviesBrand name="series" />
       {seriesError ? (
         <HomeError />
