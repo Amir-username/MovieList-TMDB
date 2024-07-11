@@ -2,6 +2,7 @@ import { Movie } from "../../models/Movie";
 import { ImageUrl } from "../../requestConfig";
 import STAR from "../../assets/svg/STAR.svg";
 import { useState } from "react";
+import ImageLoading from "../loading/ImageLoading";
 
 type ListItemProps = {
   movie: Movie;
@@ -36,11 +37,15 @@ function ListItem({ movie, setWatchList }: ListItemProps) {
      shadow-sm shadow-gray-500 dark:shadow-primary-dark justify-between md:justify-between md:w-96 md:gap-5"
     >
       <div className="flex gap-5">
-        <img
-          src={ImageUrl + movie.poster_path}
-          alt="poster"
-          className="w-14 h-20 rounded-md"
-        />
+        {movie.poster_path ? (
+          <img
+            src={ImageUrl + movie.poster_path}
+            alt="poster"
+            className="w-14 h-20 rounded-md"
+          />
+        ) : (
+          <ImageLoading type="movie" />
+        )}
         <div className="flex flex-col gap-4">
           <span className="text-xl font-title-font text-gray-600 dark:text-gray-400">
             {movie.title}
@@ -59,7 +64,9 @@ function ListItem({ movie, setWatchList }: ListItemProps) {
         <span
           onClick={onWatched}
           className={`material-symbols-outlined text-2xl cursor-pointer ${
-            watched ? "text-primary-light dark:text-primary-dark" : "text-gray-400"
+            watched
+              ? "text-primary-light dark:text-primary-dark"
+              : "text-gray-400"
           }`}
         >
           {watched ? "check_circle" : "visibility"}

@@ -12,6 +12,7 @@ import { Image } from "../../models/Image";
 import SimilarMovies from "../carousel/SimilarMovies";
 import MovieBackDrop from "./MovieBackDrop";
 import AddToList from "./AddToList";
+import ImageLoading from "../loading/ImageLoading";
 
 type MovieDetailsContentProps = {
   movie: Movie;
@@ -80,13 +81,19 @@ function MovieDetailsContent({ movie, genres }: MovieDetailsContentProps) {
       <div className="flex flex-col p-1 gap-8 mb-32 md:px-64">
         <div className="flex gap-2 justify-between">
           <MovieInfo genres={genres} movie={currMovie} />
-          <img
-            src={ImageUrl + currMovie.poster_path}
-            alt="movie poster"
-            className="w-36 h-52 ring-1 ring-gray-100 rounded-sm"
-          />
+          {movie.poster_path ? (
+            <img
+              src={ImageUrl + currMovie.poster_path}
+              alt="movie poster"
+              className="w-36 h-52 ring-1 ring-gray-100 rounded-sm"
+            />
+          ) : (
+            <ImageLoading type="movie" />
+          )}
         </div>
-        <div className="p-2 text-xl text-gray-800 dark:text-gray-400 font-main-font">{currMovie.overview}</div>
+        <div className="p-2 text-xl text-gray-800 dark:text-gray-400 font-main-font">
+          {currMovie.overview}
+        </div>
         <MovieRating movie={currMovie} />
         <AddToList movie={movie} setSnackbar={setSnackbar} />
         <CastCarousel cast={cast} />
