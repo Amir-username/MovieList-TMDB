@@ -1,8 +1,11 @@
-import { useState } from "react";
 import Star from "./Star";
 
-function Rating() {
-  const [rate, setRate] = useState<number>(0);
+type RatingProps = {
+  rate: number,
+  setRate: React.Dispatch<React.SetStateAction<number>>
+}
+
+function Rating({rate, setRate}: RatingProps) {
   return (
     <div className="flex items-center justify-center gap-2">
       <div className="flex justify-center items-center">

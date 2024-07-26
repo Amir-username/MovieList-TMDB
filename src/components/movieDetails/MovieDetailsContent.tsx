@@ -85,7 +85,7 @@ function MovieDetailsContent({ movie, genres }: MovieDetailsContentProps) {
 
   return (
     <>
-      <RatingModal isOpen={ratingModal} setIsOpen={setRatingModal}/>
+      <RatingModal isOpen={ratingModal} setIsOpen={setRatingModal} movieId={movie.id}/>
       <div className="">
         <MovieBackDrop image={ImageUrl + currMovie.backdrop_path} />
         <div className="flex flex-col p-1 gap-8 mb-32 md:px-64">
