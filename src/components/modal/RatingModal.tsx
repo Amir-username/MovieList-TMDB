@@ -32,6 +32,7 @@ function RatingModal({ isOpen, setIsOpen, movieId }: RatingModalProps) {
       localStorage.setItem("myRate", JSON.stringify([...newAllRate, myRate]));
     }
 
+    setRate(0)
     setIsOpen(false)
   };
 

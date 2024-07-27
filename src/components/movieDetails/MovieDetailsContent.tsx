@@ -85,7 +85,7 @@ function MovieDetailsContent({ movie, genres }: MovieDetailsContentProps) {
 
   return (
     <>
-      <RatingModal isOpen={ratingModal} setIsOpen={setRatingModal} movieId={movie.id}/>
+      <RatingModal isOpen={ratingModal} setIsOpen={setRatingModal} movieId={currMovie.id}/>
       <div className="">
         <MovieBackDrop image={ImageUrl + currMovie.backdrop_path} />
         <div className="flex flex-col p-1 gap-8 mb-32 md:px-64">
@@ -108,7 +108,7 @@ function MovieDetailsContent({ movie, genres }: MovieDetailsContentProps) {
             <AddRating setOpen={setRatingModal} />
             <MovieRating movie={currMovie} />
           </div>
-          <AddToList movie={movie} setSnackbar={setSnackbar} />
+          <AddToList movie={currMovie} setSnackbar={setSnackbar} />
           <CastCarousel cast={cast} />
           <ImageCarousel images={images} />
           <SimilarMovies
