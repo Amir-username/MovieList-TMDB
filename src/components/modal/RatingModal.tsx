@@ -7,9 +7,10 @@ type RatingModalProps = {
   isOpen: boolean;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
   movieId: number;
+  setYourRate: React.Dispatch<React.SetStateAction<MovieRate | undefined>>;
 };
 
-function RatingModal({ isOpen, setIsOpen, movieId }: RatingModalProps) {
+function RatingModal({ isOpen, setIsOpen, movieId, setYourRate }: RatingModalProps) {
   const [rate, setRate] = useState<number>(0);
 
   const onAdd = () => {
@@ -32,8 +33,10 @@ function RatingModal({ isOpen, setIsOpen, movieId }: RatingModalProps) {
       localStorage.setItem("myRate", JSON.stringify([...newAllRate, myRate]));
     }
 
-    setRate(0)
-    setIsOpen(false)
+    setYourRate(myRate)
+
+    setRate(0);
+    setIsOpen(false);
   };
 
   return (

@@ -15,6 +15,8 @@ import AddToList from "./AddToList";
 import ImageLoading from "../loading/ImageLoading";
 import AddRating from "./AddRating";
 import RatingModal from "../modal/RatingModal";
+import { MovieRate } from "../../models/MovieRate";
+import YourRate from "./MyRate";
 
 type MovieDetailsContentProps = {
   movie: Movie;
@@ -31,6 +33,8 @@ function MovieDetailsContent({ movie, genres }: MovieDetailsContentProps) {
 
   const [snackbar, setSnackbar] = useState<boolean>(false);
   const [ratingModal, setRatingModal] = useState<boolean>(false);
+
+  const [yourRate, setYourRate] = useState<MovieRate>();
 
   useEffect(() => {
     const fetchCast = async () => {
@@ -83,9 +87,26 @@ function MovieDetailsContent({ movie, genres }: MovieDetailsContentProps) {
     setScrollToTop(false);
   }, []);
 
+  useEffect(() => {
+    const data = localStorage.getItem("myRate");
+    if (data) {
+      const allRates: MovieRate[] = JSON.parse(data);
+      allRates.map((rate) => {
+        if (rate.movieId === currMovie.id) {
+          setYourRate(rate);
+        }
+      });
+    }
+  }, []);
+
   return (
     <>
-      <RatingModal isOpen={ratingModal} setIsOpen={setRatingModal} movieId={currMovie.id}/>
+      <RatingModal
+        isOpen={ratingModal}
+        setIsOpen={setRatingModal}
+        movieId={currMovie.id}
+        setYourRate={setYourRate}
+      />
       <div className="">
         <MovieBackDrop image={ImageUrl + currMovie.backdrop_path} />
         <div className="flex flex-col p-1 gap-8 mb-32 md:px-64">
@@ -101,6 +122,7 @@ function MovieDetailsContent({ movie, genres }: MovieDetailsContentProps) {
               <ImageLoading type="movie" />
             )}
           </div>
+          {yourRate && <YourRate rate={yourRate} />}
           <div className="p-2 text-xl text-gray-800 dark:text-gray-400 font-main-font">
             {currMovie.overview}
           </div>
