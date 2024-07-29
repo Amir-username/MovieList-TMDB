@@ -11,7 +11,7 @@ function WatchList() {
     <>
       <div className="flex flex-col gap-5 md:gap-16 p-3 md:px-40">
         <Header />
-        <div className="flex flex-col justify-between md:px-52">
+        <div className="flex flex-col justify-between md:px-52 gap-5">
           <Tabs  tabState={tabState} setTabState={setTabState} tabs={["movies", "tv show"]}/>
           {tabState === "movies" ? <ListContent /> : <ListContentTv />}
         </div>
