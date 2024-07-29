@@ -1,13 +1,11 @@
 type TabItemProps = {
   text: string;
-  active: string;
-  setActive: React.Dispatch<React.SetStateAction<string>>;
+  tabState: string
   setTabState: React.Dispatch<React.SetStateAction<string>>;
 };
 
-function TabItem({ text, active, setActive, setTabState }: TabItemProps) {
+function TabItem({ text, tabState, setTabState }: TabItemProps) {
   const onActive = () => {
-    setActive(text);
     setTabState(text);
   };
 
@@ -15,7 +13,7 @@ function TabItem({ text, active, setActive, setTabState }: TabItemProps) {
     <div
       onClick={onActive}
       className={`py-3 text-md text-center duration-300 cursor-pointer font-main-font ${
-        active === text
+        tabState === text
           ? "border-b border-primary-light text-primary-light dark:text-primary-dark dark:border-primary-dark"
           : "text-gray-400 hover:text-amber-400"
       }`}
