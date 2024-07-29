@@ -9,9 +9,9 @@ type TabsProps = {
 function Tabs({ tabState, tabs, setTabState }: TabsProps) {
   return (
     <div className="flex justify-center gap-20 border-b-2 border-gray-100 dark:border-gray-800">
-      {tabs.map((tab) => {
+      {tabs.map((tab, i) => {
         return (
-          <TabItem text={tab} tabState={tabState} setTabState={setTabState} />
+          <TabItem text={tab} tabState={tabState} setTabState={setTabState} key={i}/>
         );
       })}
     </div>

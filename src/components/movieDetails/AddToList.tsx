@@ -1,19 +1,19 @@
-import { Movie } from "../../models/Movie";
-
 type AddToListProps = {
-  movie: Movie;
+  movie: any;
   setSnackbar: React.Dispatch<React.SetStateAction<boolean>>;
+  localKey: string
 };
 
-function AddToList({ movie, setSnackbar }: AddToListProps) {
-  const onAdd = () => {
-    const watchlist = localStorage.getItem("watchlist");
-    if (watchlist) {
-      const currMovies: Movie[] = JSON.parse(watchlist);
+function AddToList({ movie, setSnackbar, localKey }: AddToListProps) {
 
-      if (!currMovies.some((movieItem) => movieItem.id === movie.id)) {
+  const onAdd = () => {
+    const watchlist = localStorage.getItem(localKey);
+    if (watchlist) {
+      const currMovies = JSON.parse(watchlist);
+
+      if (!currMovies.some((movieItem: any) => movieItem.id === movie.id)) {
         const newList = [...currMovies, movie];
-        localStorage.setItem("watchlist", JSON.stringify(newList));
+        localStorage.setItem(localKey, JSON.stringify(newList));
 
         setSnackbar(true);
 
@@ -23,7 +23,7 @@ function AddToList({ movie, setSnackbar }: AddToListProps) {
       }
     } else {
       const newList = [movie];
-      localStorage.setItem("watchlist", JSON.stringify(newList));
+      localStorage.setItem(localKey, JSON.stringify(newList));
 
       setSnackbar(true);
 

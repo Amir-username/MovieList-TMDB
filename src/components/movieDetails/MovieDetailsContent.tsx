@@ -130,7 +130,7 @@ function MovieDetailsContent({ movie, genres }: MovieDetailsContentProps) {
             <AddRating setOpen={setRatingModal} />
             <MovieRating movie={currMovie} />
           </div>
-          <AddToList movie={currMovie} setSnackbar={setSnackbar} />
+          <AddToList movie={currMovie} setSnackbar={setSnackbar} localKey="watchlist"/>
           <CastCarousel cast={cast} />
           <ImageCarousel images={images} />
           <SimilarMovies

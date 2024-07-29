@@ -8,6 +8,7 @@ import axios from "axios";
 import ImageCarousel from "../carousel/ImageCarousel";
 import MovieRating from "../movieDetails/MovieRating";
 import ImageLoading from "../loading/ImageLoading";
+import AddToList from "../movieDetails/AddToList";
 
 type TvDetailsContentProps = {
   tv: Tv;
@@ -16,6 +17,7 @@ type TvDetailsContentProps = {
 
 function TvDetailsContent({ tv, genres }: TvDetailsContentProps) {
   const [images, setImages] = useState<Image[]>([]);
+  const [snackbar, setSnackbar] = useState<boolean>(false);
 
   useEffect(() => {
     const fetchCast = async () => {
@@ -45,7 +47,16 @@ function TvDetailsContent({ tv, genres }: TvDetailsContentProps) {
         {tv.overview}
       </div>
       <MovieRating movie={tv} />
+      <AddToList movie={tv} setSnackbar={setSnackbar} localKey="watchlistTv" />
       {images && <ImageCarousel images={images} />}
+
+      {snackbar && (
+        <div className="flex bottom-64 left-24 sticky items-center justify-center duration-1000 ">
+          <div className="font-main-font bg-primary-light dark:bg-primary-dark w-fit p-4 rounded-full text-white text-xl opacity-95">
+            {tv.name} has been added to your watchlist
+          </div>
+        </div>
+      )}
     </div>
   );
 }
