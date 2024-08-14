@@ -1,7 +1,3 @@
-import { useState } from "react";
-import { Movie } from "../../models/Movie";
-
-import { Tv } from "../../models/Tv";
 import Brand from "../brand/Brand";
 import MovieCarousel from "../carousel/MovieCarousel";
 import TvCarousel from "../carousel/TvCarousel";
@@ -10,29 +6,19 @@ import HomeError from "../errorPage/HomeError";
 import { useMovie } from "../../hooks/useMovie";
 import Theme from "../brand/Theme";
 
-
 function MovieHome() {
-  const [movies, setMovies] = useState<Movie[]>([]);
-  const [moviesLoading, setMoviesLoading] = useState<boolean>(false);
-  const [moviesError, setMoviesError] = useState<boolean>(false);
 
-  const [series, setSeries] = useState<Tv[]>([]);
-  const [seriesLoading, setSeriesLoading] = useState<boolean>(false);
-  const [seriesError, setSeriesError] = useState<boolean>(false);
+  const {
+    data: movies,
+    isPending: isMoviesLoading,
+    error: isMoviesError,
+  } = useMovie("/discover/movie?page=1", 'movies');
 
-  useMovie(
-    `/discover/movie?page=1`,
-    setMovies,
-    setMoviesLoading,
-    setMoviesError
-  );
-
-  useMovie(
-    "/discover/tv?page=1&sort_by=vote_count.desc",
-    setSeries,
-    setSeriesLoading,
-    setSeriesError
-  );
+  const {
+    data: series,
+    isPending: isSeriesLoading,
+    error: isSeriesError
+  } = useMovie("/discover/tv?page=1&sort_by=vote_count.desc", 'series')
 
   return (
     <div className="p-5 mb-20">
@@ -41,16 +27,14 @@ function MovieHome() {
           <Brand />
           <Theme />
         </div>
-        {moviesError || seriesError ? (
-          <HomeError />
-        ) : moviesLoading || seriesLoading ? (
+        {isMoviesLoading || isSeriesLoading ? (
           <HomeLoading />
+        ) : isMoviesError || isSeriesError ? (
+          <HomeError />
         ) : (
           <>
             <div className="flex flex-col gap-8 md:px-52">
-              <MovieCarousel
-                movies={movies}
-              />
+              <MovieCarousel movies={movies} />
               <TvCarousel series={series} />
             </div>
           </>
