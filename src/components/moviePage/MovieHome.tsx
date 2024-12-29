@@ -21,7 +21,7 @@ function MovieHome() {
   } = useMovie("/discover/tv?page=1&sort_by=vote_count.desc", 'series')
 
   return (
-    <div className="p-5 mb-20">
+    <div className="p-5 mb-20 bg-white">
       <div className="flex flex-col">
         <div className="flex justify-between">
           <Brand />
