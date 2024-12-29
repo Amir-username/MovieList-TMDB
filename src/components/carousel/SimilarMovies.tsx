@@ -14,8 +14,13 @@ function SimilarMovies({
 }: SimilarMoviesProps) {
   return (
     <div className="flex flex-col gap-8 p-3">
-      <div className="text-3xl text-gray-600 dark:text-gray-400 font-title-font">Recommendations</div>
-      <div id="no-scrollbar" className="flex md:flex-wrap overflow-scroll md:gap-8 gap-2">
+      <div className="text-3xl text-gray-600 dark:text-gray-400 font-title-font">
+        Recommendations
+      </div>
+      <div
+        id="no-scrollbar"
+        className="flex md:flex-wrap overflow-scroll md:gap-8 gap-2"
+      >
         {movies.map((movie) => {
           return (
             <SimilarMoviesItem

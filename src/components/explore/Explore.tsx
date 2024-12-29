@@ -31,7 +31,7 @@ function Explore() {
           setPersonResult={setPersonResult}
         />
       </div>
-      {movieResult.length ? (
+      {movieResult.length && tvResult.length && personResult.length ? (
         <SearchResult
           movieResult={movieResult}
           tvResult={tvResult}
