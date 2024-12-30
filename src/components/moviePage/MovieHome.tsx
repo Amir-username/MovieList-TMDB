@@ -7,33 +7,31 @@ import { useMovie } from "../../hooks/useMovie";
 import Theme from "../brand/Theme";
 
 function MovieHome() {
-
   const {
     data: movies,
     isPending: isMoviesLoading,
     error: isMoviesError,
-  } = useMovie("/discover/movie?page=1", 'movies');
+  } = useMovie("/discover/movie?page=1", "movies");
 
   const {
     data: series,
     isPending: isSeriesLoading,
-    error: isSeriesError
-  } = useMovie("/discover/tv?page=1&sort_by=vote_count.desc", 'series')
+    error: isSeriesError,
+  } = useMovie("/discover/tv?page=1&sort_by=vote_count.desc", "series");
 
   return (
-    <div className="p-5 mb-20 bg-white">
+    <div className="p-5 mb-20" >
       <div className="flex flex-col">
-        <div className="flex justify-between">
-          <Brand />
-          <Theme />
-        </div>
         {isMoviesLoading || isSeriesLoading ? (
           <HomeLoading />
         ) : isMoviesError || isSeriesError ? (
           <HomeError />
         ) : (
           <>
-            <div className="flex flex-col gap-8 md:px-52">
+            <div
+              className="flex flex-col gap-8 md:px-52 backdrop-filter backdrop-blur-lg"
+              
+            >
               <MovieCarousel movies={movies} />
               <TvCarousel series={series} />
             </div>

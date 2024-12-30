@@ -15,6 +15,7 @@ import { TvGenreContext } from "./contexts/TvGenreContext";
 import TvDetails from "./components/tvDetails/TvDetails";
 import GenrePage from "./components/genres/GenrePage";
 import CreditDetails from "./components/credits/CreditDetails";
+import Navbar from "./components/nav/Navbar";
 
 function App() {
   const [movieGenres, setMovieGenres] = useState<Genre[]>([]);
@@ -42,7 +43,8 @@ function App() {
   }, []);
 
   return (
-    <>
+    <div>
+      <Navbar />
       <MovieGenreContext.Provider value={movieGenres}>
         <TvGenreContext.Provider value={tvGenres}>
           <Routes>
@@ -62,7 +64,7 @@ function App() {
           <BottomNavigation />
         </TvGenreContext.Provider>
       </MovieGenreContext.Provider>
-    </>
+    </div>
   );
 }
 
