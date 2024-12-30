@@ -1,10 +1,8 @@
-import Brand from "../brand/Brand";
 import MovieCarousel from "../carousel/MovieCarousel";
 import TvCarousel from "../carousel/TvCarousel";
 import HomeLoading from "../loading/HomeLoading";
 import HomeError from "../errorPage/HomeError";
 import { useMovie } from "../../hooks/useMovie";
-import Theme from "../brand/Theme";
 
 function MovieHome() {
   const {
@@ -29,7 +27,7 @@ function MovieHome() {
         ) : (
           <>
             <div
-              className="flex flex-col gap-8 md:px-52 backdrop-filter backdrop-blur-lg"
+              className="flex flex-col gap-8 md:px-48 backdrop-filter backdrop-blur-lg"
               
             >
               <MovieCarousel movies={movies} />
