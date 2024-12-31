@@ -33,26 +33,27 @@ function ListItem({ movie, setWatchList }: ListItemProps) {
 
   return (
     <div
-      className="flex p-3 rounded-2xl w-full ring-1 ring-gray-200 dark:ring-gray-700
-     shadow-sm shadow-gray-500 dark:shadow-primary-dark justify-between md:justify-between md:w-96 md:gap-5"
+      className="flex justify-between w-full p-3 shadow-sm rounded-2xl ring-1 ring-gray-200 dark:ring-gray-700 shadow-gray-500 dark:shadow-primary-dark md:justify-between md:w-96 md:gap-5"
     >
       <div className="flex gap-5">
         {movie.poster_path ? (
           <img
             src={ImageUrl + movie.poster_path}
             alt="poster"
-            className="w-14 h-20 rounded-md"
+            className="h-20 rounded-md w-14"
           />
         ) : (
           <ImageLoading type="movie" />
         )}
         <div className="flex flex-col gap-4">
-          <span className="text-xl font-title-font text-gray-600 dark:text-gray-400">
-            {movie.title}
+          <span className="text-xl text-gray-600 font-title-font dark:text-gray-400">
+            {movie.title.length > 30
+              ? movie.title.slice(0, 30) + "..."
+              : movie.title}
           </span>
           <div className="flex gap-1">
             <img src={STAR} alt="vote" className="w-5 h-5" />
-            <span className="text-sm text-gray-500 dark:text-gray-400 font-bold font-main-font">
+            <span className="text-sm font-bold text-gray-500 dark:text-gray-400 font-main-font">
               {movie.vote_average.toString().length > 3
                 ? movie.vote_average.toString().slice(0, 3)
                 : movie.vote_average}
@@ -60,7 +61,7 @@ function ListItem({ movie, setWatchList }: ListItemProps) {
           </div>
         </div>
       </div>
-      <div className="flex items-center justify-end p-3 gap-3">
+      <div className="flex items-center justify-end gap-3 p-3">
         <span
           onClick={onWatched}
           className={`material-symbols-outlined text-2xl cursor-pointer ${
@@ -73,7 +74,7 @@ function ListItem({ movie, setWatchList }: ListItemProps) {
         </span>
         <span
           onClick={onRemove}
-          className="material-symbols-outlined text-2xl text-gray-400 cursor-pointer"
+          className="text-2xl text-gray-400 cursor-pointer material-symbols-outlined"
         >
           remove
         </span>

@@ -15,7 +15,7 @@ function ListContent() {
 
   if (watchlist.length > 0) {
     return (
-      <div className="flex flex-col md:flex-wrap md:flex-row gap-2">
+      <div className="flex flex-col gap-5 md:flex-wrap md:flex-row md:justify-between">
         {watchlist.map((movie) => {
           return (
             <ListItem
