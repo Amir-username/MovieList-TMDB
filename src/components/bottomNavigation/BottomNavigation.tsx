@@ -1,35 +1,15 @@
-import { useState } from "react";
 import BottomNavigationItem from "./‌‌BottomNavigationItem";
 
 function BottomNavigation() {
-  const [activeItem, setActiveItem] = useState<string>("movies");
-
   return (
     <>
-      <div className="bg-light dark:bg-dark fixed bottom-2 md:bottom-52 
-      left-0 md:left-4 right-0 flex md:flex-col items-center px-8 md:py-8 justify-between md:justify-center 
-      md:gap-20 w-full md:w-20 rounded-full ring-1
-       ring-gray-200 dark:ring-gray-800 shadow-lg dark:shadow-sm dark:shadow-amber-700 h-20 md:h-fit">
-        <BottomNavigationItem
-          icon="movie"
-          link="/"
-          name="movies"
-          activeItem={activeItem}
-          setActiveItem={setActiveItem}
-        />
-        <BottomNavigationItem
-          icon="search"
-          link="explore/"
-          name="explore"
-          activeItem={activeItem}
-          setActiveItem={setActiveItem}
-        />
+      <div className="fixed left-0 right-0 flex items-center justify-between w-full h-20 px-8 rounded-full shadow-md bg-light dark:bg-dark bottom-2 md:bottom-52 md:left-4 md:flex-col md:py-8 md:justify-center md:gap-20 md:w-20 ring-1 ring-gray-200 dark:ring-gray-800 dark:shadow-sm dark:shadow-primary-dark md:h-fit">
+        <BottomNavigationItem icon="movie" link="/" name="movies" />
+        <BottomNavigationItem icon="search" link="/explore/" name="explore" />
         <BottomNavigationItem
           icon="format_list_bulleted_add"
-          link="watchlist/"
+          link="/watchlist/"
           name="watchlist"
-          activeItem={activeItem}
-          setActiveItem={setActiveItem}
         />
       </div>
     </>
