@@ -23,14 +23,16 @@ function MovieCarouselItem({ movie }: MovieCarouselItemProps) {
             <img
               src={ImageUrl + movie.poster_path}
               alt="movie poster"
-              className="w-44 h-72 rounded-lg  hover:brightness-50"
+              className={`${
+                isOverview && "brightness-50 duration-300"
+              } w-44 h-72 rounded-lg`}
             />
             <p
               className={`${
-                !isOverview && "hidden"
-              } absolute left-2 top-2 text-sm text-gray-100`}
+                isOverview ? "block duration-300" : "hidden"
+              } absolute left-2 top-2 right-2 text-xs text-gray-100 leading-5`}
             >
-              {movie.overview.slice(0, 300)}
+              {movie.overview.slice(0, 300)}...
             </p>
           </div>
         ) : (
