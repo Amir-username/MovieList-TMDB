@@ -1,12 +1,10 @@
 import MovieCarousel from "../carousel/MovieCarousel";
-import TvCarousel from "../carousel/TvCarousel";
 import HomeLoading from "../loading/HomeLoading";
 import HomeError from "../errorPage/HomeError";
-import { useMovie } from "../../hooks/useMovie";
-import { useMoviesStore } from "../../store/MoviesStore";
 import { useEffect } from "react";
 import { DISCOVER_MOVIES, DISCOVER_TV } from "../../api/urls";
 import { useTvStore } from "../../store/TvStore";
+import { useMoviesStore } from "../../store/MoviesStore";
 
 function MovieHome() {
   const {movies, moviesIsLoading, moviesIsError, fetchMovies} = useMoviesStore()

@@ -3,9 +3,10 @@ import { Movie } from "../../models/Movie";
 import { ImageUrl } from "../../requestConfig";
 import ImageLoading from "../loading/ImageLoading";
 import { useState } from "react";
+import { Tv } from "../../models/Tv";
 
 type MovieCarouselItemProps = {
-  movie: Movie;
+  movie: Movie | Tv;
 };
 
 function MovieCarouselItem({ movie }: MovieCarouselItemProps) {

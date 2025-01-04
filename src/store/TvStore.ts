@@ -21,17 +21,17 @@ export const useTvStore = create<TvState>((set) => ({
       const TvList: Tv[] = [];
       data?.map((data: any, i: number) => {
         const tvModel: Tv = new Tv(
-          data.id,
-          data.name,
-          data.genre_ids,
-          data.poster_path,
-          data.created_by,
-          data.overview,
-          data.first_air_date,
-          data.original_language,
-          data.vote_average,
-          data.backdrop_path,
-          data.genres
+           data.id,
+        data.name,
+        data.genre_ids,
+        data.poster_path,
+        data.created_by,
+        data.overview,
+        data.first_air_date,
+        data.original_language,
+        data.vote_average,
+        data.backdrop_path,
+        data.genres
         );
         TvList[i] = tvModel;
       });

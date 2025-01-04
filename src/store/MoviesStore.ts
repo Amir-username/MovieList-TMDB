@@ -17,6 +17,7 @@ export const useMoviesStore = create<MoviesState>((set) => ({
     set({ moviesIsLoading: true });
     try {
       const data = await fetchMovies(url);
+      console.log(data);
       set({ movies: data, moviesIsLoading: false });
     } catch (error) {
       set({ moviesIsError: true, moviesIsLoading: false });
