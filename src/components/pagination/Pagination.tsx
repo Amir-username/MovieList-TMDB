@@ -1,6 +1,6 @@
 type PaginationProps = {
   pageNum: number;
-  setPageNum: React.Dispatch<React.SetStateAction<number>>;
+  setPageNum: (newNumber: number) => void;
 };
 
 function Pagination({ pageNum, setPageNum }: PaginationProps) {
@@ -9,11 +9,11 @@ function Pagination({ pageNum, setPageNum }: PaginationProps) {
   };
 
   const onNext = () => {
-    if (pageNum < 500) setPageNum((num) => num + 1);
+    if (pageNum < 500) setPageNum(pageNum + 1);
   };
 
   const onBack = () => {
-    if (pageNum > 1) setPageNum((num) => num - 1);
+    if (pageNum > 1) setPageNum(pageNum - 1);
   };
 
   const onLast = () => {

@@ -1,52 +1,33 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import MoviesBrand from "../brand/MoviesBrand";
 import Pagination from "../pagination/Pagination";
 import AllMoviesContent from "./AllMoviesContent";
-import { Movie } from "../../models/Movie";
-import { BaseURL, options } from "../../requestConfig";
-import axios from "axios";
 import HomeError from "../errorPage/HomeError";
 import AllMoviesLoading from "../loading/AllMoviesLoading";
+import { useMoviesStore } from "../../store/MoviesStore";
+import { useMoviePageStore } from "../../store/MoviePageStore";
+import { DISCOVER_MOVIES } from "../../api/urls";
 
 function AllMovies() {
-  const [movies, setMovies] = useState<Movie[]>([]);
-  const [moviesLoading, setMoviesLoading] = useState<boolean>(false);
-  const [moviesError, setMoviesError] = useState<boolean>(false);
-
-  const [moviePage, setMoviePage] = useState<number>(1);
+  const { movies, moviesIsLoading, moviesIsError, fetchMovies } =
+    useMoviesStore();
+  const { pageNumber, setPageNumber } = useMoviePageStore();
 
   useEffect(() => {
-    setMoviesLoading(true);
-
-    const fetchMovies = async () => {
-      try {
-        const res = await axios.get(
-          BaseURL + `/discover/movie?page=${moviePage}`,
-          options
-        );
-        const data = await res.data;
-        setMovies(data.results);
-        setMoviesLoading(false);
-      } catch (error: any) {
-        setMoviesError(true);
-        console.log(error.message);
-      }
-    };
-
-    fetchMovies();
-  }, [moviePage]);
+    fetchMovies(DISCOVER_MOVIES + `&page=${pageNumber}`);
+  }, [fetchMovies, pageNumber]);
 
   return (
-    <div className="flex flex-col m-5 gap-10 mb-28 md:px-52">
+    <div className="flex flex-col m-5 md:ml-20 gap-10 mb-28 md:px-64">
       <MoviesBrand name="movies" />
-      {moviesError ? (
+      {moviesIsError ? (
         <HomeError />
-      ) : moviesLoading ? (
+      ) : moviesIsLoading ? (
         <AllMoviesLoading />
       ) : (
         <AllMoviesContent movies={movies} />
       )}
-      <Pagination pageNum={moviePage} setPageNum={setMoviePage} />
+      <Pagination pageNum={pageNumber} setPageNum={setPageNumber} />
     </div>
   );
 }
