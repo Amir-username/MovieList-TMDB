@@ -1,18 +1,20 @@
 import { Link } from "react-router-dom";
 import { Movie } from "../../models/Movie";
 import MovieCarouselItem from "./MovieCarouselItem";
+import { Tv } from "../../models/Tv";
 
 type MovieCarouselProps = {
-  movies: Movie[];
+  title: string;
+  movies: Movie[] | Tv[];
 };
 
-function MovieCarousel({ movies }: MovieCarouselProps) {
+function MovieCarousel({ title, movies }: MovieCarouselProps) {
   return (
     <div className="flex flex-col mt-8 gap-8 md:gap-5 md:justify-center">
       <div className="flex justify-center items-center ">
         <Link to={"movies"}>
           <span className="md:text-4xl text-3xl text-primary-light dark:text-primary-dark font-title-font">
-            movies
+            {title}
           </span>
         </Link>
       </div>

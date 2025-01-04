@@ -32,9 +32,7 @@ function ListItem({ movie, setWatchList }: ListItemProps) {
   };
 
   return (
-    <div
-      className="flex justify-between w-full p-3 shadow-sm rounded-2xl ring-1 ring-gray-200 dark:ring-gray-700 shadow-gray-500 dark:shadow-primary-dark md:justify-between md:w-96 md:gap-5"
-    >
+    <div className="flex justify-between w-full p-3 shadow-sm rounded-2xl ring-1 ring-gray-200 dark:ring-gray-700 shadow-gray-500 dark:shadow-primary-dark md:justify-between md:w-96 md:gap-5">
       <div className="flex gap-5">
         {movie.poster_path ? (
           <img
