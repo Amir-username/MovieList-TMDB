@@ -1,7 +1,6 @@
 import { Movie } from "../../models/Movie";
 import { Tv } from "../../models/Tv";
 import MovieCarouselItem from "../carousel/MovieCarouselItem";
-import AllMovieItem from "./AllMovieItem";
 
 type AllMoviesContentProps = {
   movies: Movie[] | Tv[];
@@ -9,9 +8,9 @@ type AllMoviesContentProps = {
 
 function AllMoviesContent({ movies }: AllMoviesContentProps) {
   return (
-    <div className="flex flex-wrap justify-start gap-5 md:gap-8 content-between">
+    <div className="flex flex-wrap md:justify-start gap-5 md:gap-8 content-between justify-center">
       {movies?.map((movie) => {
-        return <MovieCarouselItem movie={movie} key={movie.id}/>
+        return <MovieCarouselItem movie={movie} key={movie.id} />;
       })}
     </div>
   );

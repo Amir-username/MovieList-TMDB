@@ -1,9 +1,9 @@
-import { Genre } from "../../models/Genre";
+import { useEffect } from "react";
+import { useGenreStore } from "../../store/GenresStore";
 import GenreItem from "./GenreItem";
 
 type GenresProps = {
-  genres: Genre[];
-  title: string;
+  type: "movie" | "tv";
 };
 
 const Colors = [
@@ -19,7 +19,13 @@ const Colors = [
   "bg-amber-700",
 ];
 
-function Genres({ genres, title }: GenresProps) {
+function Genres({ type }: GenresProps) {
+  const { genres, fetchGenres } = useGenreStore();
+
+  useEffect(() => {
+    fetchGenres(type);
+  }, [fetchGenres, type]);
+
   return (
     <div className="flex flex-col gap-5">
       <div className="flex flex-wrap gap-2 md:gap-2 mb-20 md:items-center md:justify-center justify-center">
@@ -28,7 +34,7 @@ function Genres({ genres, title }: GenresProps) {
             <GenreItem
               key={genre.id}
               genre={genre}
-              title={title}
+              title={type}
               color={Colors[Math.floor(Math.random() * Colors.length)]}
             />
           );

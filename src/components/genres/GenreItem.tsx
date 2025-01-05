@@ -9,10 +9,17 @@ type GenreItemProps = {
 
 function GenreItem({ genre, color, title }: GenreItemProps) {
   return (
-    <Link to={"../genre/"} state={{
-      genre,
-      title
-    }}>
+    <Link
+      to={"../genre/"}
+      state={{
+        genre,
+        title,
+      }}
+    >
+      {/* <div className="relative w-40 h-28 md:w-64 md:h-44 rounded-lg p-5">
+        <img src="" alt="" />
+
+      </div> */}
       <div
         className={`flex w-40 h-28 md:w-64 md:h-44 rounded-lg p-5 ${color} items-center justify-center`}
       >
