@@ -14,7 +14,7 @@ function MovieCarouselItem({ movie }: MovieCarouselItemProps) {
 
   return (
     <Link to={"../movie-details"} state={movie}>
-      <div className="flex duration-300 flex-col flex-shrink-0 gap-2 pt-5 items-center w-44 h-full md:hover:scale-110 rounded-lg">
+      <div className="flex flex-col items-center flex-shrink-0 h-full gap-2 pt-5 duration-300 rounded-lg w-44 md:hover:scale-110">
         {movie.poster_path ? (
           <div
             onMouseEnter={() => setIsOverview(true)}

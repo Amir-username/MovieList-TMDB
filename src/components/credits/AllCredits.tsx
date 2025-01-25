@@ -7,7 +7,7 @@ type AllCreditsProps = {
 
 function AllCredits({ persons }: AllCreditsProps) {
   return (
-    <div className="flex flex-wrap justify-center gap-5 content-between">
+    <div className="flex flex-wrap content-between justify-center gap-5 md:justify-start md:gap-8">
       {persons?.map((person) => {
         return <AllCreditItem person={person} key={person.id} />;
       })}
