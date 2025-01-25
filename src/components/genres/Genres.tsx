@@ -1,23 +1,11 @@
 import { useEffect } from "react";
 import { useGenreStore } from "../../store/GenresStore";
 import GenreItem from "./GenreItem";
+import { genreBackdrops } from "../../assets/image/genres";
 
 type GenresProps = {
   type: "movie" | "tv";
 };
-
-const Colors = [
-  "bg-red-700",
-  "bg-blue-700",
-  "bg-yellow-700",
-  "bg-teal-700",
-  "bg-orange-700",
-  "bg-lime-700",
-  "bg-cyan-700",
-  "bg-pink-700",
-  "bg-rose-700",
-  "bg-amber-700",
-];
 
 function Genres({ type }: GenresProps) {
   const { genres, fetchGenres } = useGenreStore();
@@ -27,15 +15,15 @@ function Genres({ type }: GenresProps) {
   }, [fetchGenres, type]);
 
   return (
-    <div className="flex flex-col gap-5">
-      <div className="flex flex-wrap gap-2 md:gap-2 mb-20 md:items-center md:justify-center justify-center">
-        {genres.map((genre) => {
+    <div className="flex flex-col gap-5 mb-32 lg:mb-0">
+      <div className="flex flex-wrap justify-center gap-32 mb-20 md:gap-2 md:items-center">
+        {genres.map((genre, i) => {
           return (
             <GenreItem
               key={genre.id}
               genre={genre}
               title={type}
-              color={Colors[Math.floor(Math.random() * Colors.length)]}
+              backDrop={genreBackdrops[i]}
             />
           );
         })}

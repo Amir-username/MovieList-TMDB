@@ -12,8 +12,8 @@ function Explore() {
   const [personResult, setPersonResult] = useState<Credit[]>([]);
 
   return (
-    <div className="flex flex-col p-5 gap-8 md:gap-16 md:px-32">
-      <div className="flex gap-2 items-center justify-center">
+    <div className="flex flex-col gap-12 p-5 md:gap-16 md:px-32">
+      <div className="flex items-center justify-center gap-2">
         <SearchBox
           setMovieResult={setMovieResult}
           setTvResult={setTvResult}

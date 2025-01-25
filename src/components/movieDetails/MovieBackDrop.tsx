@@ -12,7 +12,7 @@ function MovieBackDrop({ image }: MovieBackDropProps) {
       {/* <Link to={'../movie-details'}> */}
       <span
         onClick={() => navigate(-1)}
-        className="absolute left-2 top-3 material-symbols-outlined text-gray-100 text-3xl cursor-pointer"
+        className="absolute text-3xl text-gray-100 cursor-pointer left-2 top-3 material-symbols-outlined"
       >
         arrow_back
       </span>
@@ -20,7 +20,7 @@ function MovieBackDrop({ image }: MovieBackDropProps) {
       <img
         src={image}
         alt="movie poster"
-        className="w-full h-full md:h-96 md:brightness-50 object-cover"
+        className="object-cover w-full h-full md:h-96 md:brightness-50"
       />
     </div>
   );
